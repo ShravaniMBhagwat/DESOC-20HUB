@@ -571,6 +571,12 @@ export default function Index() {
           </form>
         </DialogContent>
       </Dialog>
+
+      {/* Notification System */}
+      <NotificationSystem
+        isOpen={showNotifications}
+        onClose={() => setShowNotifications(false)}
+      />
     </div>
   );
 }
