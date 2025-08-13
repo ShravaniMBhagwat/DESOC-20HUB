@@ -183,8 +183,10 @@ export default {
       boxShadow: {
         '3xl': '0 35px 60px -12px rgba(0, 0, 0, 0.25)',
         '4xl': '0 40px 80px -12px rgba(0, 0, 0, 0.3)',
-        'glow': '0 0 20px rgba(59, 130, 246, 0.5)',
-        'glow-lg': '0 0 30px rgba(59, 130, 246, 0.6)',
+        'glow': '0 0 20px rgba(99, 102, 241, 0.4)',
+        'glow-lg': '0 0 30px rgba(99, 102, 241, 0.5)',
+        'glow-accent': '0 0 20px rgba(236, 72, 153, 0.4)',
+        'glow-success': '0 0 20px rgba(5, 150, 105, 0.4)',
       },
       borderWidth: {
         '3': '3px',
