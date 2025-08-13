@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { SearchAndFilters } from '@/components/SearchAndFilters';
 import { EnhancedWorkshopCard } from '@/components/EnhancedWorkshopCard';
+import { NotificationSystem } from '@/components/NotificationSystem';
 import { workshopsData, Workshop } from '@/data/workshops';
 
 interface UserRegistration {
