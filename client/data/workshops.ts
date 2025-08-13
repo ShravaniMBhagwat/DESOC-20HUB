@@ -188,7 +188,7 @@ export const workshopsData: Workshop[] = [
     level: 'Advanced',
     tags: ['Blockchain', 'Cryptography', 'Web3', 'Solidity'],
     category: 'Blockchain',
-    price: 179,
+    price: 0,
     rating: 4.6,
     reviewCount: 156,
     reviews: [],
