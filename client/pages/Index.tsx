@@ -287,24 +287,24 @@ export default function Index() {
           <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-purple-600/8 to-pink-600/6 rounded-3xl shadow-2xl"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent rounded-3xl"></div>
           <div className="relative py-20 px-8">
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-purple-600/15 rounded-full mb-8 border border-brand/20 shadow-lg backdrop-blur-sm">
+            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-accent/10 rounded-full mb-8 border border-brand/20 shadow-lg backdrop-blur-sm">
               <Star className="w-5 h-5 text-brand mr-2 animate-pulse" />
-              <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-600">Premium Learning Platform</span>
+              <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">Premium Learning Platform</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+            <h2 className="text-5xl md:text-7xl font-bold text-neutral-900 mb-8 leading-tight">
               Unlock the
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-purple-600 to-pink-600 animate-pulse"> Universe </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-pulse"> Universe </span>
               of Knowledge
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-neutral-600 max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
               Join DESOC Workshop Hub and transform your career with cutting-edge workshops led by industry pioneers.
               Master tomorrow's technologies today and earn prestigious certifications that matter.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Button className="bg-gradient-to-r from-brand via-blue-600 to-purple-600 hover:from-brand/90 hover:via-blue-600/90 hover:to-purple-600/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border-2 border-white/20">
+              <Button className="bg-gradient-to-r from-brand via-brand-600 to-accent hover:from-brand/90 hover:via-brand-600/90 hover:to-accent/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-105 border-2 border-white/20">
                 🚀 Start Learning Today
               </Button>
-              <Button variant="outline" className="px-10 py-4 text-xl font-bold border-3 border-brand hover:bg-gradient-to-r hover:from-brand/5 hover:to-purple-600/5 transition-all duration-500 transform hover:scale-105 hover:border-purple-600">
+              <Button variant="outline" className="px-10 py-4 text-xl font-bold border-3 border-brand hover:bg-gradient-to-r hover:from-brand/5 hover:to-accent/5 transition-all duration-500 transform hover:scale-105 hover:border-accent text-brand hover:text-accent">
                 🎯 Explore Workshops
               </Button>
             </div>
