@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -6,26 +6,16 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Users, Calendar, Clock, Cpu, Orbit, Zap } from 'lucide-react';
-import { SciFiHeader } from '@/components/SciFiHeader';
-import { WorkshopCard } from '@/components/WorkshopCard';
-import { LoadingScreen } from '@/components/LoadingScreen';
-import { SciFiFooter } from '@/components/SciFiFooter';
-import { ParticleBackground } from '@/components/ParticleBackground';
-
-interface Workshop {
-  id: string;
-  name: string;
-  date: string;
-  time: string;
-  description: string;
-  capacity: number;
-  registeredUsers: string[];
-  imageUrl?: string;
-  instructor: string;
-  level: 'Beginner' | 'Intermediate' | 'Advanced';
-  tags: string[];
-}
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { 
+  Users, Calendar, Clock, Star, Award, TrendingUp, BookOpen, 
+  Play, CheckCircle, Bell, Search, Filter, Grid, List, Menu,
+  User, Settings, LogOut, Heart
+} from 'lucide-react';
+import { SearchAndFilters } from '@/components/SearchAndFilters';
+import { EnhancedWorkshopCard } from '@/components/EnhancedWorkshopCard';
+import { workshopsData, Workshop } from '@/data/workshops';
 
 interface UserRegistration {
   workshopId: string;
@@ -33,116 +23,13 @@ interface UserRegistration {
   registeredAt: Date;
 }
 
-const mockWorkshops: Workshop[] = [
-  {
-    id: 'quantum-computing',
-    name: 'Quantum Computing Fundamentals',
-    date: '2025-01-20',
-    time: '14:00 - 16:00',
-    description: 'Dive into the quantum realm and understand the principles of quantum computing, qubits, and quantum algorithms.',
-    capacity: 25,
-    registeredUsers: [],
-    instructor: 'Dr. Sarah Chen',
-    level: 'Intermediate',
-    tags: ['Quantum', 'Physics', 'Computing'],
-    imageUrl: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'neural-networks',
-    name: 'Neural Network Architecture',
-    date: '2025-01-25',
-    time: '10:00 - 12:00',
-    description: 'Explore deep learning architectures and build your first neural network from scratch.',
-    capacity: 30,
-    registeredUsers: [],
-    instructor: 'Prof. Alex Rodriguez',
-    level: 'Advanced',
-    tags: ['AI', 'Machine Learning', 'Python'],
-    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'space-robotics',
-    name: 'Space Robotics Engineering',
-    date: '2025-01-30',
-    time: '13:00 - 15:00',
-    description: 'Design and program robots for space exploration missions. Learn about autonomous navigation in zero gravity.',
-    capacity: 20,
-    registeredUsers: [],
-    instructor: 'Commander Lisa Park',
-    level: 'Intermediate',
-    tags: ['Robotics', 'Space', 'Engineering'],
-    imageUrl: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'blockchain-protocols',
-    name: 'Advanced Blockchain Protocols',
-    date: '2025-02-05',
-    time: '16:00 - 18:00',
-    description: 'Master consensus algorithms, smart contracts, and decentralized application development.',
-    capacity: 35,
-    registeredUsers: [],
-    instructor: 'Dr. Marcus Webb',
-    level: 'Advanced',
-    tags: ['Blockchain', 'Cryptography', 'Web3'],
-    imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'cybersecurity-hacking',
-    name: 'Ethical Hacking & Penetration Testing',
-    date: '2025-02-10',
-    time: '09:00 - 11:00',
-    description: 'Learn ethical hacking techniques, vulnerability assessment, and penetration testing methodologies.',
-    capacity: 15,
-    registeredUsers: [],
-    instructor: 'Agent Maya Singh',
-    level: 'Advanced',
-    tags: ['Security', 'Hacking', 'Networks'],
-    imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'biotech-programming',
-    name: 'Biotechnology & Bioinformatics',
-    date: '2025-02-15',
-    time: '11:00 - 13:00',
-    description: 'Apply programming to biological data analysis, gene sequencing, and protein structure prediction.',
-    capacity: 28,
-    registeredUsers: [],
-    instructor: 'Dr. Elena Vasquez',
-    level: 'Beginner',
-    tags: ['Biology', 'Data Science', 'Research'],
-    imageUrl: 'https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'ar-vr-development',
-    name: 'Augmented & Virtual Reality Development',
-    date: '2025-02-20',
-    time: '15:00 - 17:00',
-    description: 'Create immersive AR/VR experiences using cutting-edge development frameworks and spatial computing.',
-    capacity: 22,
-    registeredUsers: [],
-    instructor: 'Dr. Kai Nakamura',
-    level: 'Intermediate',
-    tags: ['AR', 'VR', 'Spatial Computing', 'Unity'],
-    imageUrl: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=400&h=250&fit=crop'
-  },
-  {
-    id: 'edge-computing',
-    name: 'Edge Computing & IoT Architecture',
-    date: '2025-02-25',
-    time: '12:00 - 14:00',
-    description: 'Architect distributed systems for edge computing and IoT networks with real-time processing capabilities.',
-    capacity: 26,
-    registeredUsers: [],
-    instructor: 'Engineer Priya Sharma',
-    level: 'Advanced',
-    tags: ['IoT', 'Edge Computing', 'Distributed Systems'],
-    imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop'
-  }
-];
-
 export default function Index() {
+  // Authentication state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState<string | null>(null);
+  const [userRole, setUserRole] = useState<'student' | 'instructor' | 'admin'>('student');
+  
+  // Loading and UI state
   const [isLoading, setIsLoading] = useState(true);
   const [workshops, setWorkshops] = useState<Workshop[]>([]);
   const [registrations, setRegistrations] = useState<UserRegistration[]>([]);
@@ -151,20 +38,34 @@ export default function Index() {
   const [authForm, setAuthForm] = useState({ email: '', password: '', confirmPassword: '' });
   const [authError, setAuthError] = useState('');
   const [notification, setNotification] = useState('');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+
+  // Search and filter state
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [selectedLevel, setSelectedLevel] = useState('All Levels');
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
+  const [minRating, setMinRating] = useState(0);
+  const [sortBy, setSortBy] = useState('Featured');
+  const [showFilters, setShowFilters] = useState(false);
+  const [onlyFeatured, setOnlyFeatured] = useState(false);
+  const [onlyWithCertificate, setOnlyWithCertificate] = useState(false);
 
   useEffect(() => {
     const initializeApp = async () => {
       setIsLoading(true);
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
-      const savedUser = localStorage.getItem('sciFiUser');
+      const savedUser = localStorage.getItem('workshopUser');
       if (savedUser) {
-        setCurrentUser(savedUser);
+        const userData = JSON.parse(savedUser);
+        setCurrentUser(userData.id);
+        setUserRole(userData.role || 'student');
         setIsAuthenticated(true);
-        loadUserRegistrations(savedUser);
+        loadUserRegistrations(userData.id);
       }
       
-      setWorkshops(mockWorkshops);
+      setWorkshops(workshopsData);
       setIsLoading(false);
     };
 
@@ -197,12 +98,18 @@ export default function Index() {
       return;
     }
 
-    const userId = `user_${Date.now()}`;
-    localStorage.setItem('sciFiUser', userId);
-    setCurrentUser(userId);
+    const userData = {
+      id: `user_${Date.now()}`,
+      email: authForm.email,
+      role: 'student' as const
+    };
+
+    localStorage.setItem('workshopUser', JSON.stringify(userData));
+    setCurrentUser(userData.id);
+    setUserRole(userData.role);
     setIsAuthenticated(true);
     setShowAuth(false);
-    showNotification(`Authentication successful! Welcome to the network, Agent ${userId.slice(-4)}.`);
+    showNotification(`Welcome! You've successfully ${authMode === 'login' ? 'signed in' : 'created your account'}.`);
   };
 
   const handleRegister = async (workshopId: string) => {
@@ -221,7 +128,7 @@ export default function Index() {
     }
 
     if (workshop.registeredUsers.length >= workshop.capacity) {
-      showNotification('Workshop is at full capacity.', 3000);
+      showNotification('This workshop is at full capacity.', 3000);
       return;
     }
 
@@ -242,7 +149,7 @@ export default function Index() {
     );
     setWorkshops(updatedWorkshops);
 
-    showNotification(`Successfully registered for ${workshop.name}!`);
+    showNotification(`Successfully registered for "${workshop.name}"!`);
   };
 
   const handleUnregister = async (workshopId: string) => {
@@ -261,143 +168,294 @@ export default function Index() {
     setWorkshops(updatedWorkshops);
 
     const workshop = workshops.find(w => w.id === workshopId);
-    showNotification(`Unregistered from ${workshop?.name}`, 3000);
+    showNotification(`Cancelled registration for "${workshop?.name}"`, 3000);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('sciFiUser');
+    localStorage.removeItem('workshopUser');
     localStorage.removeItem(`registrations_${currentUser}`);
     setCurrentUser(null);
+    setUserRole('student');
     setIsAuthenticated(false);
     setRegistrations([]);
-    showNotification('Session terminated. Goodbye, Agent.', 3000);
+    showNotification('You have been signed out successfully.', 3000);
   };
 
   const isRegisteredForWorkshop = (workshopId: string) => {
     return registrations.some(r => r.workshopId === workshopId);
   };
 
-  const getLevelColor = (level: string) => {
-    switch (level) {
-      case 'Beginner': return 'bg-cyber-green-500 text-cyber-green-100';
-      case 'Intermediate': return 'bg-neon-blue-500 text-neon-blue-100';
-      case 'Advanced': return 'bg-neon-purple-500 text-neon-purple-100';
-      default: return 'bg-gray-500 text-gray-100';
-    }
+  const clearFilters = () => {
+    setSearchTerm('');
+    setSelectedCategory('All Categories');
+    setSelectedLevel('All Levels');
+    setPriceRange([0, 200]);
+    setMinRating(0);
+    setOnlyFeatured(false);
+    setOnlyWithCertificate(false);
   };
 
+  // Filter and sort workshops
+  const filteredAndSortedWorkshops = useMemo(() => {
+    let filtered = workshops.filter(workshop => {
+      const matchesSearch = workshop.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           workshop.instructor.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           workshop.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+      
+      const matchesCategory = selectedCategory === 'All Categories' || workshop.category === selectedCategory;
+      const matchesLevel = selectedLevel === 'All Levels' || workshop.level === selectedLevel;
+      const matchesPrice = workshop.price >= priceRange[0] && workshop.price <= priceRange[1];
+      const matchesRating = workshop.rating >= minRating;
+      const matchesFeatured = !onlyFeatured || workshop.featured;
+      const matchesCertificate = !onlyWithCertificate || workshop.certificate;
+
+      return matchesSearch && matchesCategory && matchesLevel && matchesPrice && 
+             matchesRating && matchesFeatured && matchesCertificate;
+    });
+
+    // Sort workshops
+    switch (sortBy) {
+      case 'Newest':
+        filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        break;
+      case 'Highest Rated':
+        filtered.sort((a, b) => b.rating - a.rating);
+        break;
+      case 'Price: Low to High':
+        filtered.sort((a, b) => a.price - b.price);
+        break;
+      case 'Price: High to Low':
+        filtered.sort((a, b) => b.price - a.price);
+        break;
+      case 'Featured':
+      default:
+        filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+        break;
+    }
+
+    return filtered;
+  }, [workshops, searchTerm, selectedCategory, selectedLevel, priceRange, minRating, sortBy, onlyFeatured, onlyWithCertificate]);
+
   if (isLoading) {
-    return <LoadingScreen />;
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardContent className="p-8 text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand mx-auto mb-4"></div>
+            <h2 className="text-xl font-semibold mb-2">Loading Workshop Hub</h2>
+            <p className="text-gray-600">Preparing your learning experience...</p>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative">
-      <ParticleBackground />
-      <div className="relative z-10">
-        <SciFiHeader
-          isAuthenticated={isAuthenticated}
-          currentUser={currentUser}
-          onConnect={() => setShowAuth(true)}
-          onLogout={handleLogout}
-        />
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-center w-10 h-10 bg-brand rounded-lg">
+                <BookOpen className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">WorkshopHub</h1>
+                <p className="text-xs text-gray-500">Professional Learning Platform</p>
+              </div>
+            </div>
+            
+            {/* User Actions */}
+            <div className="flex items-center space-x-4">
+              {isAuthenticated ? (
+                <>
+                  <Button variant="ghost" size="sm">
+                    <Bell className="w-4 h-4 mr-2" />
+                    Notifications
+                  </Button>
+                  <div className="flex items-center space-x-2">
+                    <Avatar className="w-8 h-8">
+                      <AvatarFallback>
+                        {currentUser?.slice(-2).toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm font-medium">User {currentUser?.slice(-4)}</span>
+                  </div>
+                  <Button variant="outline" size="sm" onClick={handleLogout}>
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Button onClick={() => setShowAuth(true)} className="bg-brand hover:bg-brand/90">
+                  Sign In
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      </header>
 
       {/* Notification */}
       {notification && (
-        <div className="fixed top-20 right-6 z-50 animate-slide-in-right">
-          <Alert className="bg-cyber-green-500/20 border-cyber-green-500 text-cyber-green-400">
-            <Zap className="h-4 w-4" />
+        <div className="fixed top-20 right-4 z-50">
+          <Alert className="bg-white border border-green-200 text-green-800">
+            <CheckCircle className="h-4 w-4" />
             <AlertDescription>{notification}</AlertDescription>
           </Alert>
         </div>
       )}
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
         <section className="text-center mb-12">
-          <div className="space-y-6">
-            <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-blue-400 via-neon-purple-400 to-cyber-green-400 animate-float">
-              ADVANCED TECHNOLOGY WORKSHOPS
-            </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto font-mono">
-              Interface with cutting-edge technology protocols. Enhance your neural pathways with quantum-level knowledge.
-            </p>
-            <div className="flex items-center justify-center space-x-8 text-sm text-slate-400">
-              <div className="flex items-center space-x-2">
-                <Users className="w-4 h-4 text-neon-blue-400" />
-                <span>{workshops.reduce((acc, w) => acc + w.capacity, 0)} Total Slots</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Calendar className="w-4 h-4 text-neon-purple-400" />
-                <span>{workshops.length} Active Workshops</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Zap className="w-4 h-4 text-cyber-green-400" />
-                <span>Real-time Sync</span>
-              </div>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Professional Workshop Platform
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Advance your career with hands-on workshops led by industry experts. 
+            Learn cutting-edge technologies and earn professional certificates.
+          </p>
+          
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-brand">{workshops.length}</div>
+              <div className="text-sm text-gray-600">Active Workshops</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-brand">{workshops.reduce((acc, w) => acc + w.capacity, 0)}</div>
+              <div className="text-sm text-gray-600">Total Seats</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-brand">4.7</div>
+              <div className="text-sm text-gray-600">Avg Rating</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-brand">92%</div>
+              <div className="text-sm text-gray-600">Completion Rate</div>
             </div>
           </div>
         </section>
 
+        {/* Search and Filters */}
+        <SearchAndFilters
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          selectedLevel={selectedLevel}
+          setSelectedLevel={setSelectedLevel}
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
+          minRating={minRating}
+          setMinRating={setMinRating}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+          showFilters={showFilters}
+          setShowFilters={setShowFilters}
+          onlyFeatured={onlyFeatured}
+          setOnlyFeatured={setOnlyFeatured}
+          onlyWithCertificate={onlyWithCertificate}
+          setOnlyWithCertificate={setOnlyWithCertificate}
+          clearFilters={clearFilters}
+        />
+
+        {/* Results Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">
+              {filteredAndSortedWorkshops.length} Workshop{filteredAndSortedWorkshops.length !== 1 ? 's' : ''} Found
+            </h3>
+            {searchTerm && (
+              <p className="text-gray-600">Showing results for "{searchTerm}"</p>
+            )}
+          </div>
+          
+          <div className="flex items-center space-x-2">
+            <Button
+              variant={viewMode === 'grid' ? "default" : "outline"}
+              size="sm"
+              onClick={() => setViewMode('grid')}
+            >
+              <Grid className="w-4 h-4" />
+            </Button>
+            <Button
+              variant={viewMode === 'list' ? "default" : "outline"}
+              size="sm"
+              onClick={() => setViewMode('list')}
+            >
+              <List className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+
         {/* My Registrations */}
         {isAuthenticated && registrations.length > 0 && (
           <section className="mb-12">
-            <h3 className="text-2xl font-bold text-neon-blue-400 mb-6 flex items-center">
-              <Cpu className="w-6 h-6 mr-2" />
-              MY ACTIVE PROTOCOLS
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {registrations.map((reg) => {
-                const workshop = workshops.find(w => w.id === reg.workshopId);
-                if (!workshop) return null;
-                
-                return (
-                  <Card key={reg.workshopId} className="glass border-cyber-green-500/50 hover:border-cyber-green-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-green-500/20">
-                    <CardHeader className="pb-3">
-                      <div className="flex items-center justify-between">
-                        <Badge className={getLevelColor(workshop.level)}>
-                          {workshop.level}
-                        </Badge>
-                        <Badge variant="outline" className="border-cyber-green-500 text-cyber-green-400">
-                          REGISTERED
-                        </Badge>
-                      </div>
-                      <CardTitle className="text-lg text-neon-blue-400">{workshop.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="flex items-center space-x-4 text-sm text-slate-300">
-                        <div className="flex items-center space-x-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{workshop.date}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Clock className="w-4 h-4" />
-                          <span>{workshop.time}</span>
-                        </div>
-                      </div>
-                      <Button 
-                        onClick={() => handleUnregister(workshop.id)}
-                        variant="outline" 
-                        className="w-full border-red-500/50 text-red-400 hover:bg-red-500/10"
-                      >
-                        ABORT PROTOCOL
-                      </Button>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+            <Card className="professional-card">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <CheckCircle className="w-5 h-5 mr-2 text-success" />
+                  My Registered Workshops
+                </CardTitle>
+                <CardDescription>
+                  Track your upcoming workshops and learning progress
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {registrations.slice(0, 3).map((reg) => {
+                    const workshop = workshops.find(w => w.id === reg.workshopId);
+                    if (!workshop) return null;
+                    
+                    return (
+                      <Card key={reg.workshopId} className="border border-success-200 bg-success-50">
+                        <CardContent className="p-4">
+                          <h4 className="font-medium text-gray-900 mb-2">{workshop.name}</h4>
+                          <div className="flex items-center text-sm text-gray-600 mb-2">
+                            <Calendar className="w-4 h-4 mr-1" />
+                            {workshop.date} at {workshop.time}
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <Badge className="bg-success text-white">Registered</Badge>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handleUnregister(workshop.id)}
+                              className="text-red-600 border-red-200 hover:bg-red-50"
+                            >
+                              Cancel
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+                {registrations.length > 3 && (
+                  <div className="mt-4 text-center">
+                    <Button variant="outline">
+                      View All {registrations.length} Registrations
+                    </Button>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
           </section>
         )}
 
         {/* Workshops Grid */}
         <section>
-          <h3 className="text-2xl font-bold text-neon-blue-400 mb-6 flex items-center">
-            <Orbit className="w-6 h-6 mr-2 animate-spin" />
-            AVAILABLE PROTOCOLS
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {workshops.map((workshop) => (
-              <WorkshopCard
+          <div className={`grid gap-6 ${
+            viewMode === 'grid' 
+              ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
+              : 'grid-cols-1'
+          }`}>
+            {filteredAndSortedWorkshops.map((workshop) => (
+              <EnhancedWorkshopCard
                 key={workshop.id}
                 workshop={workshop}
                 isRegistered={isRegisteredForWorkshop(workshop.id)}
@@ -406,48 +464,57 @@ export default function Index() {
               />
             ))}
           </div>
+
+          {filteredAndSortedWorkshops.length === 0 && (
+            <Card className="professional-card text-center py-12">
+              <CardContent>
+                <Search className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-gray-900 mb-2">No workshops found</h3>
+                <p className="text-gray-600 mb-4">
+                  Try adjusting your search criteria or clearing filters to see more results.
+                </p>
+                <Button onClick={clearFilters}>Clear All Filters</Button>
+              </CardContent>
+            </Card>
+          )}
         </section>
       </main>
 
-      <SciFiFooter />
-
       {/* Authentication Dialog */}
       <Dialog open={showAuth} onOpenChange={setShowAuth}>
-        <DialogContent className="glass border-neon-blue-500/50 text-slate-100">
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-neon-blue-400 text-xl">
-              {authMode === 'login' ? 'SYSTEM ACCESS' : 'NEURAL LINK CREATION'}
+            <DialogTitle>
+              {authMode === 'login' ? 'Welcome Back' : 'Create Account'}
             </DialogTitle>
-            <DialogDescription className="text-slate-400">
+            <DialogDescription>
               {authMode === 'login' 
-                ? 'Enter your credentials to access the network' 
-                : 'Initialize new agent profile in the system'
+                ? 'Sign in to your account to register for workshops' 
+                : 'Create a new account to start your learning journey'
               }
             </DialogDescription>
           </DialogHeader>
           
           <form onSubmit={handleAuth} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-slate-300">Agent ID</Label>
+              <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="email"
                 value={authForm.email}
                 onChange={(e) => setAuthForm({...authForm, email: e.target.value})}
-                className="bg-slate-800/50 border-neon-blue-500/30 text-slate-100 focus:border-neon-blue-400"
-                placeholder="agent@nexus.sys"
+                placeholder="your@email.com"
                 required
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-slate-300">Access Key</Label>
+              <Label htmlFor="password">Password</Label>
               <Input
                 id="password"
                 type="password"
                 value={authForm.password}
                 onChange={(e) => setAuthForm({...authForm, password: e.target.value})}
-                className="bg-slate-800/50 border-neon-blue-500/30 text-slate-100 focus:border-neon-blue-400"
                 placeholder="••••••••"
                 required
               />
@@ -455,13 +522,12 @@ export default function Index() {
             
             {authMode === 'signup' && (
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword" className="text-slate-300">Confirm Access Key</Label>
+                <Label htmlFor="confirmPassword">Confirm Password</Label>
                 <Input
                   id="confirmPassword"
                   type="password"
                   value={authForm.confirmPassword}
                   onChange={(e) => setAuthForm({...authForm, confirmPassword: e.target.value})}
-                  className="bg-slate-800/50 border-neon-blue-500/30 text-slate-100 focus:border-neon-blue-400"
                   placeholder="••••••••"
                   required
                 />
@@ -469,15 +535,14 @@ export default function Index() {
             )}
             
             {authError && (
-              <Alert className="bg-red-500/20 border-red-500 text-red-400">
-                <AlertDescription>{authError}</AlertDescription>
+              <Alert className="border-red-200 bg-red-50">
+                <AlertDescription className="text-red-800">{authError}</AlertDescription>
               </Alert>
             )}
             
-            <div className="flex flex-col space-y-3">
-              <Button type="submit" className="bg-neon-blue-500 hover:bg-neon-blue-600 text-white">
-                <Zap className="w-4 h-4 mr-2" />
-                {authMode === 'login' ? 'ESTABLISH CONNECTION' : 'CREATE NEURAL LINK'}
+            <div className="space-y-3">
+              <Button type="submit" className="w-full bg-brand hover:bg-brand/90">
+                {authMode === 'login' ? 'Sign In' : 'Create Account'}
               </Button>
               
               <Button 
@@ -488,15 +553,14 @@ export default function Index() {
                   setAuthError('');
                   setAuthForm({ email: '', password: '', confirmPassword: '' });
                 }}
-                className="text-slate-400 hover:text-neon-blue-400"
+                className="w-full"
               >
-                {authMode === 'login' ? 'Need neural link? Create profile' : 'Already connected? Access system'}
+                {authMode === 'login' ? 'Need an account? Sign up' : 'Already have an account? Sign in'}
               </Button>
             </div>
           </form>
         </DialogContent>
       </Dialog>
-      </div>
     </div>
   );
 }
