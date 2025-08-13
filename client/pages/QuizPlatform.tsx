@@ -500,28 +500,28 @@ export default function QuizPlatform() {
                   </div>
                   
                   <h2 className="text-3xl font-bold mb-4">Quiz Completed!</h2>
-                  <p className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600 mb-4">
+                  <p className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent mb-4">
                     {score}%
                   </p>
                   
                   <div className="grid grid-cols-3 gap-6 max-w-md mx-auto mb-8">
                     <div>
-                      <p className="text-2xl font-bold text-green-600">
+                      <p className="text-2xl font-bold text-success">
                         {userAnswers.filter((answer, index) => answer === selectedQuiz.questions[index]?.correct).length}
                       </p>
-                      <p className="text-sm text-gray-600">Correct</p>
+                      <p className="text-sm text-neutral-600">Correct</p>
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-red-600">
+                      <p className="text-2xl font-bold text-accent">
                         {userAnswers.filter((answer, index) => answer !== -1 && answer !== selectedQuiz.questions[index]?.correct).length}
                       </p>
-                      <p className="text-sm text-gray-600">Incorrect</p>
+                      <p className="text-sm text-neutral-600">Incorrect</p>
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-600">
+                      <p className="text-2xl font-bold text-neutral-600">
                         {userAnswers.filter(answer => answer === -1).length}
                       </p>
-                      <p className="text-sm text-gray-600">Skipped</p>
+                      <p className="text-sm text-neutral-600">Skipped</p>
                     </div>
                   </div>
                   
