@@ -548,6 +548,11 @@ export default function Index() {
           </div>
         </section>
 
+        {/* DESOC Events Section */}
+        <section className="mb-16">
+          <DesocEvents />
+        </section>
+
         {/* Contact Us Section */}
         <section className="mb-16">
           <Card className="professional-card bg-gradient-to-r from-gray-50 to-blue-50 border-brand/20">
