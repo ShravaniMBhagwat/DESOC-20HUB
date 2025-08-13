@@ -968,16 +968,16 @@ export default function Index() {
                 {/* Help & Support */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-gradient-to-r from-green-400 to-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <div className="w-20 h-20 bg-gradient-to-r from-brand to-accent rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <MessageSquare className="w-10 h-10 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2">Help & Support</h3>
-                    <p className="text-green-200 font-medium mb-2">24/7 Technical Support</p>
+                    <p className="text-blue-200 font-medium mb-2">24/7 Technical Support</p>
                     <p className="text-white/80 text-sm mb-6">Get help with any technical issues or general inquiries</p>
                     <div className="space-y-3">
                       <div className="flex items-center justify-center">
-                        <MessageSquare className="w-4 h-4 mr-2 text-green-200" />
-                        <a href="mailto:help@desoc.edu" className="text-white hover:text-green-200 transition-colors">
+                        <MessageSquare className="w-4 h-4 mr-2 text-blue-200" />
+                        <a href="mailto:help@desoc.edu" className="text-white hover:text-blue-200 transition-colors">
                           help@desoc.edu
                         </a>
                       </div>
