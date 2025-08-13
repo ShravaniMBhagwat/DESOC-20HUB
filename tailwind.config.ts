@@ -290,6 +290,7 @@ export default {
         "rotate-slow": "rotate-slow 20s linear infinite",
         "float-delayed": "float 4s ease-in-out infinite 1s",
         "float-slow": "float 6s ease-in-out infinite 2s",
+        "universe-magic": "universe-magic 4s ease-in-out infinite",
       },
       boxShadow: {
         "3xl": "0 35px 60px -12px rgba(0, 0, 0, 0.25)",
