@@ -257,11 +257,13 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-brand-50/30 to-accent-50/20 relative overflow-hidden">
-      {/* Floating background elements */}
+      {/* Enhanced Floating background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-brand/10 to-accent/8 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-accent/8 to-brand/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-success/10 to-brand/8 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-accent/8 to-brand/10 rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-success/10 to-brand/8 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-r from-warning/6 to-success/6 rounded-full blur-2xl animate-rotate-slow opacity-30"></div>
+        <div className="absolute bottom-40 right-1/4 w-56 h-56 bg-gradient-to-r from-accent/5 to-warning/5 rounded-full blur-3xl animate-bounce-gentle"></div>
       </div>
       {/* Navigation */}
       <Navigation
