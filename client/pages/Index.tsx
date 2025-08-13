@@ -381,7 +381,9 @@ export default function Index() {
             </MotionWrapper>
             <MotionWrapper animation="slide-up" delay={400} duration="0.8s">
               <h2 className="text-5xl md:text-7xl font-bold text-neutral-900 mb-8 leading-tight">
-                Unlock the
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-brand animate-gradient-shift bg-size-200">
+                  Unlock the
+                </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-gradient-shift bg-size-200">
                   {" "}
                   Universe{" "}
