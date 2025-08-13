@@ -282,6 +282,9 @@ export default {
       borderWidth: {
         '3': '3px',
       },
+      backgroundSize: {
+        '200': '200% 200%',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
