@@ -214,17 +214,19 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <div>
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand/10 to-accent/10 rounded-full mb-4">
-              <Activity className="w-4 h-4 text-brand mr-2" />
-              <span className="text-sm font-semibold text-brand">Learning Analytics</span>
+          <MotionWrapper animation="slide-left" delay={0}>
+            <div>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand/10 to-accent/10 rounded-full mb-4 hover:scale-105 transition-transform duration-300">
+                <Activity className="w-4 h-4 text-brand mr-2 animate-pulse" />
+                <span className="text-sm font-semibold text-brand">Learning Analytics</span>
+              </div>
+              <h1 className="text-4xl font-bold text-neutral-900 mb-2">
+                Your Learning
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent animate-gradient-shift bg-size-200"> Dashboard</span>
+              </h1>
+              <p className="text-lg text-neutral-600">Track your progress and stay motivated on your learning journey</p>
             </div>
-            <h1 className="text-4xl font-bold text-neutral-900 mb-2">
-              Your Learning
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent"> Dashboard</span>
-            </h1>
-            <p className="text-lg text-neutral-600">Track your progress and stay motivated on your learning journey</p>
-          </div>
+          </MotionWrapper>
           
           <div className="text-right">
             <p className="text-sm text-neutral-500">Current Streak</p>
