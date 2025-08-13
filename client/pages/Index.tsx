@@ -290,10 +290,12 @@ export default function Index() {
           <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-purple-600/8 to-pink-600/6 rounded-3xl shadow-2xl"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent rounded-3xl"></div>
           <div className="relative py-20 px-8">
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-accent/10 rounded-full mb-8 border border-brand/20 shadow-lg backdrop-blur-sm">
-              <Star className="w-5 h-5 text-brand mr-2 animate-pulse" />
-              <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">Premium Learning Platform</span>
-            </div>
+            <MotionWrapper animation="fade-in" delay={200}>
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-accent/10 rounded-full mb-8 border border-brand/20 shadow-lg backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+                <Star className="w-5 h-5 text-brand mr-2 animate-pulse" />
+                <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">Premium Learning Platform</span>
+              </div>
+            </MotionWrapper>
             <h2 className="text-5xl md:text-7xl font-bold text-neutral-900 mb-8 leading-tight">
               Unlock the
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-pulse"> Universe </span>
