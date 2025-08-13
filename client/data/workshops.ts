@@ -66,7 +66,7 @@ export const workshopsData: Workshop[] = [
     level: 'Intermediate',
     tags: ['Quantum', 'Physics', 'Computing', 'Algorithms'],
     category: 'Computing',
-    price: 99,
+    price: 0,
     rating: 4.8,
     reviewCount: 127,
     reviews: [
