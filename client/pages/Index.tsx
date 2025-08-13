@@ -915,6 +915,127 @@ export default function Index() {
         </section>
       </main>
 
+      {/* Footer with Contact Information */}
+      <footer className="bg-gradient-to-r from-success via-success-600 to-emerald-600 text-white relative overflow-hidden">
+        {/* Background patterns */}
+        <div className="absolute inset-0 bg-gradient-to-br from-success/20 via-transparent to-emerald-600/20"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <MotionWrapper animation="slide-up" delay={0} duration="0.8s">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">Get in Touch</h2>
+              <p className="text-xl text-white/90 max-w-2xl mx-auto">
+                Ready to start your learning journey? We're here to help you succeed.
+              </p>
+              <div className="mt-6 inline-flex items-center px-6 py-3 bg-white/20 rounded-full backdrop-blur-sm border border-white/30">
+                <span className="text-lg font-semibold">🆓 All Workshops - Completely FREE!</span>
+              </div>
+            </div>
+
+            {/* Contact Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {/* Head Contact */}
+              <StaggeredList staggerDelay={100} className="contents">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-gradient-to-r from-emerald-400 to-green-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                      <User className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Dr. Priya Sharma</h3>
+                    <p className="text-green-200 font-medium mb-2">Head of Education</p>
+                    <p className="text-white/80 text-sm mb-6">Leading educational innovation and curriculum development</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-center">
+                        <MessageSquare className="w-4 h-4 mr-2 text-green-200" />
+                        <a href="mailto:priya.sharma@desoc.edu" className="text-white hover:text-green-200 transition-colors">
+                          priya.sharma@desoc.edu
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <Users className="w-4 h-4 mr-2 text-green-200" />
+                        <a href="tel:+1-555-0123" className="text-white hover:text-green-200 transition-colors">
+                          +1 (555) 012-3456
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Help & Support */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-gradient-to-r from-green-400 to-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                      <MessageSquare className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Help & Support</h3>
+                    <p className="text-green-200 font-medium mb-2">24/7 Technical Support</p>
+                    <p className="text-white/80 text-sm mb-6">Get help with any technical issues or general inquiries</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-center">
+                        <MessageSquare className="w-4 h-4 mr-2 text-green-200" />
+                        <a href="mailto:help@desoc.edu" className="text-white hover:text-green-200 transition-colors">
+                          help@desoc.edu
+                        </a>
+                      </div>
+                      <div className="mt-4">
+                        <Button className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm">
+                          Submit Ticket
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* General Contact */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                      <BookOpen className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">DESOC Hub</h3>
+                    <p className="text-green-200 font-medium mb-2">Main Office</p>
+                    <p className="text-white/80 text-sm mb-6">General information and partnerships</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-center">
+                        <MessageSquare className="w-4 h-4 mr-2 text-green-200" />
+                        <a href="mailto:info@desoc.edu" className="text-white hover:text-green-200 transition-colors">
+                          info@desoc.edu
+                        </a>
+                      </div>
+                      <div className="text-white/80 text-sm">
+                        San Francisco, CA<br/>
+                        Mon-Fri 9AM-6PM PST
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </StaggeredList>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="border-t border-white/20 pt-8 mt-12">
+              <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="flex items-center space-x-4 mb-4 md:mb-0">
+                  <div className="flex items-center justify-center w-12 h-12 bg-white/20 rounded-xl">
+                    <BookOpen className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">DESOC Workshop Hub</h3>
+                    <p className="text-green-200 text-sm">Unlock the Universe of Knowledge</p>
+                  </div>
+                </div>
+                <div className="text-center md:text-right">
+                  <p className="text-white/80 text-sm">© 2025 DESOC. All rights reserved.</p>
+                  <p className="text-green-200 text-sm font-medium">Made with 💚 for learners worldwide</p>
+                </div>
+              </div>
+            </div>
+          </MotionWrapper>
+        </div>
+      </footer>
+
       {/* Authentication Dialog */}
       <Dialog open={showAuth} onOpenChange={setShowAuth}>
         <DialogContent className="sm:max-w-md">
