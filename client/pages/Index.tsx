@@ -18,6 +18,7 @@ import { EnhancedWorkshopCard } from '@/components/EnhancedWorkshopCard';
 import { NotificationSystem } from '@/components/NotificationSystem';
 import Navigation from '@/components/Navigation';
 import DesocEvents from '@/components/DesocEvents';
+import MotionWrapper, { StaggeredList } from '@/components/MotionWrapper';
 import { workshopsData, Workshop } from '@/data/workshops';
 
 interface UserRegistration {
