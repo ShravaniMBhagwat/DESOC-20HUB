@@ -11,6 +11,8 @@ import About from "./pages/About";
 import WorkshopDetail from "./pages/WorkshopDetail";
 import Profile from "./pages/Profile";
 import AdminDashboard from "./pages/AdminDashboard";
+import QuizPlatform from "./pages/QuizPlatform";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
