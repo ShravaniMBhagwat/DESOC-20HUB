@@ -39,8 +39,8 @@ export default function Navigation({
   };
 
   return (
-    <header className="bg-white/95 backdrop-blur-lg border-b border-gray-200/60 sticky top-0 z-50 shadow-lg relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-brand/5 via-transparent to-purple-600/5"></div>
+    <header className="bg-white/95 backdrop-blur-lg border-b border-gray-200/60 sticky top-0 z-50 shadow-lg relative animate-slide-in-up">
+      <div className="absolute inset-0 bg-gradient-to-r from-brand/5 via-transparent to-accent/5"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex items-center justify-between h-18 py-2">
           {/* Logo */}
