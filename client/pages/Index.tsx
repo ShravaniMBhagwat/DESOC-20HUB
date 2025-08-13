@@ -321,24 +321,24 @@ export default function Index() {
             </MotionWrapper>
 
             {/* Enhanced Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-105 hover:rotate-1">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-600 mb-3 group-hover:scale-110 transition-transform duration-300">{workshops.length}</div>
+            <StaggeredList staggerDelay={150} className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-105 hover:rotate-1 cursor-pointer">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-600 mb-3 group-hover:scale-110 group-hover:animate-bounce-gentle transition-transform duration-300">{workshops.length}</div>
                 <div className="text-sm font-semibold text-neutral-600 group-hover:text-brand transition-colors duration-300">Expert Workshops</div>
               </div>
-              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-glow-success transition-all duration-500 transform hover:scale-105 hover:-rotate-1">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-success-600 mb-3 group-hover:scale-110 transition-transform duration-300">{workshops.reduce((acc, w) => acc + w.capacity, 0)}</div>
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-glow-success transition-all duration-500 transform hover:scale-105 hover:-rotate-1 cursor-pointer">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-success-600 mb-3 group-hover:scale-110 group-hover:animate-bounce-gentle transition-transform duration-300">{workshops.reduce((acc, w) => acc + w.capacity, 0)}</div>
                 <div className="text-sm font-semibold text-neutral-600 group-hover:text-success transition-colors duration-300">Learning Seats</div>
               </div>
-              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-500 transform hover:scale-105 hover:rotate-1">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-warning to-warning-600 mb-3 group-hover:scale-110 transition-transform duration-300">4.7⭐</div>
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-500 transform hover:scale-105 hover:rotate-1 cursor-pointer">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-warning to-warning-600 mb-3 group-hover:scale-110 group-hover:animate-bounce-gentle transition-transform duration-300">4.7⭐</div>
                 <div className="text-sm font-semibold text-neutral-600 group-hover:text-warning transition-colors duration-300">Average Rating</div>
               </div>
-              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-glow-accent transition-all duration-500 transform hover:scale-105 hover:-rotate-1">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-600 mb-3 group-hover:scale-110 transition-transform duration-300">92%</div>
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-glow-accent transition-all duration-500 transform hover:scale-105 hover:-rotate-1 cursor-pointer">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-600 mb-3 group-hover:scale-110 group-hover:animate-bounce-gentle transition-transform duration-300">92%</div>
                 <div className="text-sm font-semibold text-neutral-600 group-hover:text-accent transition-colors duration-300">Success Rate</div>
               </div>
-            </div>
+            </StaggeredList>
           </div>
         </section>
 
