@@ -309,14 +309,16 @@ export default function Index() {
                 Master tomorrow's technologies today and earn prestigious certifications that matter.
               </p>
             </MotionWrapper>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Button className="bg-gradient-to-r from-brand via-brand-600 to-accent hover:from-brand/90 hover:via-brand-600/90 hover:to-accent/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-105 border-2 border-white/20">
-                🚀 Start Learning Today
-              </Button>
-              <Button variant="outline" className="px-10 py-4 text-xl font-bold border-3 border-brand hover:bg-gradient-to-r hover:from-brand/5 hover:to-accent/5 transition-all duration-500 transform hover:scale-105 hover:border-accent text-brand hover:text-accent">
-                🎯 Explore Workshops
-              </Button>
-            </div>
+            <MotionWrapper animation="scale-in" delay={800} duration="0.6s">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                <Button className="bg-gradient-to-r from-brand via-brand-600 to-accent hover:from-brand/90 hover:via-brand-600/90 hover:to-accent/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-110 hover:-rotate-1 border-2 border-white/20 group">
+                  <span className="group-hover:animate-bounce-gentle">🚀</span> Start Learning Today
+                </Button>
+                <Button variant="outline" className="px-10 py-4 text-xl font-bold border-3 border-brand hover:bg-gradient-to-r hover:from-brand/5 hover:to-accent/5 transition-all duration-500 transform hover:scale-110 hover:rotate-1 hover:border-accent text-brand hover:text-accent group">
+                  <span className="group-hover:animate-wiggle">🎯</span> Explore Workshops
+                </Button>
+              </div>
+            </MotionWrapper>
 
             {/* Enhanced Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
