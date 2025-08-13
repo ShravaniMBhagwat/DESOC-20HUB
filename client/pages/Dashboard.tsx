@@ -154,6 +154,15 @@ export default function Dashboard() {
   const [stats] = useState<LearningStats>(mockLearningStats);
   const [activeTab, setActiveTab] = useState('overview');
 
+  // Mock authentication state - in a real app, this would come from a global state/context
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [currentUser, setCurrentUser] = useState('user_12345');
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setCurrentUser(null);
+  };
+
   const getActivityIcon = (type: string) => {
     switch (type) {
       case 'quiz': return Brain;
