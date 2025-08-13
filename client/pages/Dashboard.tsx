@@ -249,7 +249,7 @@ export default function Dashboard() {
 
           <TabsContent value="overview" className="space-y-8">
             {/* Key Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <StaggeredList staggerDelay={100} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Card className="professional-card bg-gradient-to-br from-brand-50 to-brand-100 border-brand-200">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
@@ -301,7 +301,7 @@ export default function Dashboard() {
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </StaggeredList>
 
             {/* Recent Activity & Upcoming Deadlines */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
