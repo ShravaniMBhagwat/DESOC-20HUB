@@ -370,7 +370,7 @@ export default function Index() {
 
         {/* HackerRank Series - Special Course */}
         <section className="mb-16">
-          <div className="relative bg-gradient-to-r from-green-600 to-blue-600 rounded-3xl p-8 overflow-hidden">
+          <div className="relative bg-gradient-to-r from-success to-brand rounded-3xl p-8 overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
