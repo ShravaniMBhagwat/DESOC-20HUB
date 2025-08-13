@@ -390,7 +390,7 @@ export default function Index() {
                     <Badge className="bg-white/20 text-white border-white/30">Real-time Judging</Badge>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="bg-white text-green-600 hover:bg-white/90 font-semibold px-6 py-3">
+                    <Button className="bg-white text-success hover:bg-white/90 font-semibold px-6 py-3 shadow-lg">
                       Start Coding Challenges
                     </Button>
                     <Button variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-6 py-3">
