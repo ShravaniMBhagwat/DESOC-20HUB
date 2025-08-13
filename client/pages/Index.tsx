@@ -407,8 +407,8 @@ export default function Index() {
                   variant="outline"
                   className="px-10 py-4 text-xl font-bold border-3 border-blue-700 hover:bg-gradient-to-r hover:from-blue-700/5 hover:to-brand/5 transition-all duration-500 transform hover:scale-110 hover:rotate-1 hover:border-brand text-blue-700 hover:text-brand group"
                 >
-                  <span className="group-hover:animate-wiggle">🎯</span> Explore Free
-                  Workshops
+                  <span className="group-hover:animate-wiggle">🎯</span> Explore
+                  Free Workshops
                 </Button>
               </div>
             </MotionWrapper>
@@ -481,24 +481,34 @@ export default function Index() {
                         <span className="text-2xl">🚀</span>
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold text-neutral-900">DESOC Team Recruitment 2025</h4>
-                        <p className="text-sm text-neutral-600">Posted on January 15, 2025</p>
+                        <h4 className="text-xl font-bold text-neutral-900">
+                          DESOC Team Recruitment 2025
+                        </h4>
+                        <p className="text-sm text-neutral-600">
+                          Posted on January 15, 2025
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-red-500 text-white animate-pulse">New</Badge>
+                      <Badge className="bg-red-500 text-white animate-pulse">
+                        New
+                      </Badge>
                       <Badge className="bg-success text-white">Open</Badge>
                     </div>
                   </div>
 
                   <div className="mb-6">
                     <p className="text-neutral-700 leading-relaxed mb-4">
-                      🎯 <strong>Join the DESOC Core Team!</strong> We're looking for passionate individuals to help shape the future of developer education and community building.
+                      🎯 <strong>Join the DESOC Core Team!</strong> We're
+                      looking for passionate individuals to help shape the
+                      future of developer education and community building.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       <div className="bg-white/70 rounded-lg p-4 border border-brand/10">
-                        <h5 className="font-semibold text-brand mb-2">🔥 Open Positions:</h5>
+                        <h5 className="font-semibold text-brand mb-2">
+                          🔥 Open Positions:
+                        </h5>
                         <ul className="text-sm text-neutral-700 space-y-1">
                           <li>• Technical Content Creator</li>
                           <li>• Community Manager</li>
@@ -507,7 +517,9 @@ export default function Index() {
                         </ul>
                       </div>
                       <div className="bg-white/70 rounded-lg p-4 border border-accent/10">
-                        <h5 className="font-semibold text-accent mb-2">💎 What We Offer:</h5>
+                        <h5 className="font-semibold text-accent mb-2">
+                          💎 What We Offer:
+                        </h5>
                         <ul className="text-sm text-neutral-700 space-y-1">
                           <li>• Flexible work hours</li>
                           <li>• Skill development opportunities</li>
@@ -519,9 +531,12 @@ export default function Index() {
 
                     <div className="bg-gradient-to-r from-success/10 to-emerald-500/10 rounded-lg p-4 border border-success/20 mb-4">
                       <p className="text-sm font-medium text-success-700">
-                        📅 <strong>Application Deadline:</strong> February 15, 2025<br/>
-                        📧 <strong>Apply at:</strong> recruitment@desoc.edu<br/>
-                        ⏰ <strong>Interview Process:</strong> Rolling basis - Apply early!
+                        📅 <strong>Application Deadline:</strong> February 15,
+                        2025
+                        <br />
+                        📧 <strong>Apply at:</strong> recruitment@desoc.edu
+                        <br />⏰ <strong>Interview Process:</strong> Rolling
+                        basis - Apply early!
                       </p>
                     </div>
                   </div>
@@ -531,7 +546,10 @@ export default function Index() {
                       <Button className="bg-gradient-to-r from-brand to-brand-600 hover:from-brand/90 hover:to-brand-600/90 text-white shadow-lg hover:shadow-xl transition-all duration-300">
                         Apply Now
                       </Button>
-                      <Button variant="outline" className="border-brand text-brand hover:bg-brand/5">
+                      <Button
+                        variant="outline"
+                        className="border-brand text-brand hover:bg-brand/5"
+                      >
                         Learn More
                       </Button>
                     </div>
@@ -551,12 +569,19 @@ export default function Index() {
                     <div className="w-8 h-8 bg-gradient-to-r from-success to-emerald-500 rounded-lg flex items-center justify-center">
                       <span className="text-sm">📚</span>
                     </div>
-                    <h5 className="font-semibold text-neutral-900">New Course Launch</h5>
+                    <h5 className="font-semibold text-neutral-900">
+                      New Course Launch
+                    </h5>
                   </div>
                   <p className="text-sm text-neutral-600 mb-3">
-                    Advanced AI & Machine Learning workshop series launching February 2025.
+                    Advanced AI & Machine Learning workshop series launching
+                    February 2025.
                   </p>
-                  <Button size="sm" variant="outline" className="text-success border-success hover:bg-success/5">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="text-success border-success hover:bg-success/5"
+                  >
                     Register Interest
                   </Button>
                 </div>
@@ -566,12 +591,19 @@ export default function Index() {
                     <div className="w-8 h-8 bg-gradient-to-r from-accent to-pink-500 rounded-lg flex items-center justify-center">
                       <span className="text-sm">🏆</span>
                     </div>
-                    <h5 className="font-semibold text-neutral-900">Hackathon Winner</h5>
+                    <h5 className="font-semibold text-neutral-900">
+                      Hackathon Winner
+                    </h5>
                   </div>
                   <p className="text-sm text-neutral-600 mb-3">
-                    Congratulations to Team CodeCrafters for winning the DESOC Winter Hackathon 2025!
+                    Congratulations to Team CodeCrafters for winning the DESOC
+                    Winter Hackathon 2025!
                   </p>
-                  <Button size="sm" variant="outline" className="text-accent border-accent hover:bg-accent/5">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="text-accent border-accent hover:bg-accent/5"
+                  >
                     View Results
                   </Button>
                 </div>
@@ -883,7 +915,6 @@ export default function Index() {
           </MotionWrapper>
         </section>
 
-
         {/* Search and Filters */}
         <SearchAndFilters
           searchTerm={searchTerm}
@@ -1051,12 +1082,17 @@ export default function Index() {
           <MotionWrapper animation="slide-up" delay={0} duration="0.8s">
             {/* Header */}
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">Get in Touch</h2>
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Get in Touch
+              </h2>
               <p className="text-xl text-white/90 max-w-2xl mx-auto">
-                Ready to start your learning journey? We're here to help you succeed.
+                Ready to start your learning journey? We're here to help you
+                succeed.
               </p>
               <div className="mt-6 inline-flex items-center px-6 py-3 bg-white/20 rounded-full backdrop-blur-sm border border-white/30">
-                <span className="text-lg font-semibold">🆓 All Workshops - Completely FREE!</span>
+                <span className="text-lg font-semibold">
+                  🆓 All Workshops - Completely FREE!
+                </span>
               </div>
             </div>
 
@@ -1069,19 +1105,31 @@ export default function Index() {
                     <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-brand rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <User className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Dr. Priya Sharma</h3>
-                    <p className="text-blue-200 font-medium mb-2">Head of Education</p>
-                    <p className="text-white/80 text-sm mb-6">Leading educational innovation and curriculum development</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Dr. Priya Sharma
+                    </h3>
+                    <p className="text-blue-200 font-medium mb-2">
+                      Head of Education
+                    </p>
+                    <p className="text-white/80 text-sm mb-6">
+                      Leading educational innovation and curriculum development
+                    </p>
                     <div className="space-y-3">
                       <div className="flex items-center justify-center">
                         <MessageSquare className="w-4 h-4 mr-2 text-blue-200" />
-                        <a href="mailto:priya.sharma@desoc.edu" className="text-white hover:text-blue-200 transition-colors">
+                        <a
+                          href="mailto:priya.sharma@desoc.edu"
+                          className="text-white hover:text-blue-200 transition-colors"
+                        >
                           priya.sharma@desoc.edu
                         </a>
                       </div>
                       <div className="flex items-center justify-center">
                         <Users className="w-4 h-4 mr-2 text-blue-200" />
-                        <a href="tel:+1-555-0123" className="text-white hover:text-blue-200 transition-colors">
+                        <a
+                          href="tel:+1-555-0123"
+                          className="text-white hover:text-blue-200 transition-colors"
+                        >
                           +1 (555) 012-3456
                         </a>
                       </div>
@@ -1095,13 +1143,22 @@ export default function Index() {
                     <div className="w-20 h-20 bg-gradient-to-r from-brand to-accent rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <MessageSquare className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Help & Support</h3>
-                    <p className="text-blue-200 font-medium mb-2">24/7 Technical Support</p>
-                    <p className="text-white/80 text-sm mb-6">Get help with any technical issues or general inquiries</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Help & Support
+                    </h3>
+                    <p className="text-blue-200 font-medium mb-2">
+                      24/7 Technical Support
+                    </p>
+                    <p className="text-white/80 text-sm mb-6">
+                      Get help with any technical issues or general inquiries
+                    </p>
                     <div className="space-y-3">
                       <div className="flex items-center justify-center">
                         <MessageSquare className="w-4 h-4 mr-2 text-blue-200" />
-                        <a href="mailto:help@desoc.edu" className="text-white hover:text-blue-200 transition-colors">
+                        <a
+                          href="mailto:help@desoc.edu"
+                          className="text-white hover:text-blue-200 transition-colors"
+                        >
                           help@desoc.edu
                         </a>
                       </div>
@@ -1120,18 +1177,28 @@ export default function Index() {
                     <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <BookOpen className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">DESOC Hub</h3>
-                    <p className="text-blue-200 font-medium mb-2">Main Office</p>
-                    <p className="text-white/80 text-sm mb-6">General information and partnerships</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      DESOC Hub
+                    </h3>
+                    <p className="text-blue-200 font-medium mb-2">
+                      Main Office
+                    </p>
+                    <p className="text-white/80 text-sm mb-6">
+                      General information and partnerships
+                    </p>
                     <div className="space-y-3">
                       <div className="flex items-center justify-center">
                         <MessageSquare className="w-4 h-4 mr-2 text-blue-200" />
-                        <a href="mailto:info@desoc.edu" className="text-white hover:text-blue-200 transition-colors">
+                        <a
+                          href="mailto:info@desoc.edu"
+                          className="text-white hover:text-blue-200 transition-colors"
+                        >
                           info@desoc.edu
                         </a>
                       </div>
                       <div className="text-white/80 text-sm">
-                        San Francisco, CA<br/>
+                        San Francisco, CA
+                        <br />
                         Mon-Fri 9AM-6PM PST
                       </div>
                     </div>
@@ -1148,13 +1215,21 @@ export default function Index() {
                     <BookOpen className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">DESOC Workshop Hub</h3>
-                    <p className="text-blue-200 text-sm">Unlock the Universe of Knowledge</p>
+                    <h3 className="text-xl font-bold text-white">
+                      DESOC Workshop Hub
+                    </h3>
+                    <p className="text-blue-200 text-sm">
+                      Unlock the Universe of Knowledge
+                    </p>
                   </div>
                 </div>
                 <div className="text-center md:text-right">
-                  <p className="text-white/80 text-sm">© 2025 DESOC. All rights reserved.</p>
-                  <p className="text-blue-200 text-sm font-medium">Made with 💙 for learners worldwide</p>
+                  <p className="text-white/80 text-sm">
+                    © 2025 DESOC. All rights reserved.
+                  </p>
+                  <p className="text-blue-200 text-sm font-medium">
+                    Made with 💙 for learners worldwide
+                  </p>
                 </div>
               </div>
             </div>
