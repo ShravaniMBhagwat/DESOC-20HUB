@@ -183,8 +183,8 @@ export function EnhancedWorkshopCard({ workshop, isRegistered, onRegister, onUnr
         {/* Action Buttons */}
         <div className="space-y-2 pt-2">
           <Link to={`/workshop/${workshop.id}`}>
-            <Button variant="outline" className="w-full justify-between">
-              View Details
+            <Button variant="outline" className="w-full justify-between border-2 border-brand text-brand hover:bg-brand hover:text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg">
+              View Curriculum
               <ChevronRight className="w-4 h-4" />
             </Button>
           </Link>
