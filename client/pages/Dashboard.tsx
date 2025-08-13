@@ -202,7 +202,7 @@ export default function Dashboard() {
   const maxWeeklyHours = Math.max(...stats.weeklyProgress.map(p => p.hours));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-teal-50/20 to-blue-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-brand-50/20 to-accent-50/20">
       <Navigation
         isAuthenticated={isAuthenticated}
         currentUser={currentUser}
@@ -214,22 +214,22 @@ export default function Dashboard() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-500/10 to-blue-600/10 rounded-full mb-4">
-              <Activity className="w-4 h-4 text-teal-600 mr-2" />
-              <span className="text-sm font-semibold text-teal-700">Learning Analytics</span>
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand/10 to-accent/10 rounded-full mb-4">
+              <Activity className="w-4 h-4 text-brand mr-2" />
+              <span className="text-sm font-semibold text-brand">Learning Analytics</span>
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-4xl font-bold text-neutral-900 mb-2">
               Your Learning
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600"> Dashboard</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent"> Dashboard</span>
             </h1>
-            <p className="text-lg text-gray-600">Track your progress and stay motivated on your learning journey</p>
+            <p className="text-lg text-neutral-600">Track your progress and stay motivated on your learning journey</p>
           </div>
           
           <div className="text-right">
-            <p className="text-sm text-gray-500">Current Streak</p>
+            <p className="text-sm text-neutral-500">Current Streak</p>
             <div className="flex items-center">
               <Flame className="w-6 h-6 text-orange-500 mr-2" />
-              <span className="text-2xl font-bold text-gray-900">{stats.currentStreak} days</span>
+              <span className="text-2xl font-bold text-neutral-900">{stats.currentStreak} days</span>
             </div>
           </div>
         </div>
