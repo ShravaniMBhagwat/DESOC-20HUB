@@ -383,9 +383,11 @@ export default function Index() {
 
         {/* HackerRank Series - Special Course */}
         <section className="mb-16">
-          <div className="relative bg-gradient-to-r from-success to-brand rounded-3xl p-8 overflow-hidden">
-            <div className="absolute inset-0 bg-black/10"></div>
-            <div className="relative z-10">
+          <MotionWrapper animation="scale-in" delay={0} duration="0.8s">
+            <div className="relative bg-gradient-to-r from-success to-brand rounded-3xl p-8 overflow-hidden hover:shadow-2xl transition-shadow duration-500">
+              <div className="absolute inset-0 bg-black/10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
+              <div className="relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="text-white">
                   <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full mb-4">
@@ -443,8 +445,9 @@ export default function Index() {
                   </div>
                 </div>
               </div>
+              </div>
             </div>
-          </div>
+          </MotionWrapper>
         </section>
 
         {/* Upcoming Events */}
