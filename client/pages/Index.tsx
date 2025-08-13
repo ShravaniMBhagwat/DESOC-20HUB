@@ -382,7 +382,7 @@ export default function Index() {
             <MotionWrapper animation="slide-up" delay={400} duration="0.8s">
               <h2 className="text-5xl md:text-7xl font-bold text-neutral-900 mb-8 leading-tight">
                 Unlock the
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-gradient-shift bg-size-200 animate-universe-magic hover:animate-wiggle transition-all duration-500 transform hover:scale-125 hover:rotate-2 cursor-default shadow-lg hover:shadow-glow-accent filter">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-gradient-shift bg-size-200 animate-universe-magic animate-blink hover:animate-wiggle transition-all duration-500 transform hover:scale-125 hover:rotate-2 cursor-default">
                   {" "}
                   Universe{" "}
                 </span>
