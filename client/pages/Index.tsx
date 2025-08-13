@@ -328,25 +328,25 @@ export default function Index() {
         <section className="text-center mb-12 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-brand/5 to-purple-600/5 rounded-3xl"></div>
           <div className="relative py-16 px-8">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand/10 to-purple-600/10 rounded-full mb-6">
-              <Star className="w-4 h-4 text-brand mr-2" />
-              <span className="text-sm font-medium text-gray-700">Trusted by 50,000+ professionals worldwide</span>
+            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-purple-600/15 rounded-full mb-8 border border-brand/20 shadow-lg backdrop-blur-sm">
+              <Star className="w-5 h-5 text-brand mr-2 animate-pulse" />
+              <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-600">Premium Learning Platform</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
               Unlock the
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-600"> Universe </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-purple-600 to-pink-600 animate-pulse"> Universe </span>
               of Knowledge
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
               Join DESOC Workshop Hub and transform your career with cutting-edge workshops led by industry pioneers.
               Master tomorrow's technologies today and earn prestigious certifications that matter.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button className="bg-gradient-to-r from-brand to-blue-600 hover:from-brand/90 hover:to-blue-600/90 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                Start Learning Today
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+              <Button className="bg-gradient-to-r from-brand via-blue-600 to-purple-600 hover:from-brand/90 hover:via-blue-600/90 hover:to-purple-600/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border-2 border-white/20">
+                🚀 Start Learning Today
               </Button>
-              <Button variant="outline" className="px-8 py-3 text-lg font-semibold border-2 hover:bg-gray-50 transition-all duration-300">
-                Explore Workshops
+              <Button variant="outline" className="px-10 py-4 text-xl font-bold border-3 border-brand hover:bg-gradient-to-r hover:from-brand/5 hover:to-purple-600/5 transition-all duration-500 transform hover:scale-105 hover:border-purple-600">
+                🎯 Explore Workshops
               </Button>
             </div>
 
@@ -372,20 +372,40 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Trust Indicators */}
-        <section className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Trusted by 50,000+ professionals worldwide from leading organizations</p>
+        {/* Innovation Partners */}
+        <section className="mb-16">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-600 mb-4">Innovation Partners</h3>
+            <p className="text-lg font-medium text-gray-600">Powering the future with leading technology companies</p>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Google</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Microsoft</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Meta</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Amazon</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Apple</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Netflix</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Tesla</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">SpaceX</div>
+          <div className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent z-10 pointer-events-none"></div>
+            <div className="flex flex-wrap justify-center items-center gap-6">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600 transition-all duration-300">Google</span>
+              </div>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-600 group-hover:to-emerald-600 transition-all duration-300">Microsoft</span>
+              </div>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">Meta</span>
+              </div>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-yellow-600 transition-all duration-300">Amazon</span>
+              </div>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-gray-50 hover:to-slate-50 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-gray-600 group-hover:to-slate-600 transition-all duration-300">Apple</span>
+              </div>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-red-50 hover:to-rose-50 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-600 group-hover:to-rose-600 transition-all duration-300">Netflix</span>
+              </div>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-cyan-600 transition-all duration-300">Tesla</span>
+              </div>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-purple-600 transition-all duration-300">SpaceX</span>
+              </div>
+            </div>
           </div>
         </section>
 
