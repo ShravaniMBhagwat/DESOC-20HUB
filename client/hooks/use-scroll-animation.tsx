@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface UseScrollAnimationOptions {
   threshold?: number;
@@ -7,7 +7,7 @@ interface UseScrollAnimationOptions {
 }
 
 export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
-  const { threshold = 0.1, rootMargin = '0px', triggerOnce = true } = options;
+  const { threshold = 0.1, rootMargin = "0px", triggerOnce = true } = options;
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -26,7 +26,7 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
           setIsVisible(false);
         }
       },
-      { threshold, rootMargin }
+      { threshold, rootMargin },
     );
 
     observer.observe(element);
@@ -47,7 +47,7 @@ export function useStaggeredAnimation(itemCount: number, delay: number = 100) {
   useEffect(() => {
     if (isVisible && visibleItems < itemCount) {
       const timer = setInterval(() => {
-        setVisibleItems(prev => {
+        setVisibleItems((prev) => {
           if (prev >= itemCount) {
             clearInterval(timer);
             return prev;

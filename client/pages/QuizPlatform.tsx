@@ -1,17 +1,36 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import Navigation from '@/components/Navigation';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import {
-  Clock, Trophy, CheckCircle, XCircle, Brain, Target, 
-  Play, Pause, RotateCcw, Award, BookOpen, Timer,
-  TrendingUp, Calendar, Users, Star
-} from 'lucide-react';
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Navigation from "@/components/Navigation";
+import {
+  Clock,
+  Trophy,
+  CheckCircle,
+  XCircle,
+  Brain,
+  Target,
+  Play,
+  Pause,
+  RotateCcw,
+  Award,
+  BookOpen,
+  Timer,
+  TrendingUp,
+  Calendar,
+  Users,
+  Star,
+} from "lucide-react";
 
 interface Question {
   id: string;
@@ -19,7 +38,7 @@ interface Question {
   options: string[];
   correct: number;
   explanation: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
+  difficulty: "Easy" | "Medium" | "Hard";
   topic: string;
 }
 
@@ -30,7 +49,7 @@ interface Quiz {
   questions: Question[];
   timeLimit: number; // in minutes
   category: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
+  difficulty: "Easy" | "Medium" | "Hard";
   attempts: number;
   bestScore: number;
   thumbnail: string;
@@ -44,119 +63,130 @@ interface Exam {
   totalQuestions: number;
   passingScore: number;
   category: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
-  status: 'upcoming' | 'active' | 'completed';
+  difficulty: "Easy" | "Medium" | "Hard";
+  status: "upcoming" | "active" | "completed";
   scheduledDate: string;
   instructor: string;
 }
 
 const sampleQuizzes: Quiz[] = [
   {
-    id: 'quiz1',
-    title: 'React Fundamentals',
-    description: 'Test your knowledge of React basics including components, props, and state management.',
+    id: "quiz1",
+    title: "React Fundamentals",
+    description:
+      "Test your knowledge of React basics including components, props, and state management.",
     timeLimit: 30,
-    category: 'Frontend Development',
-    difficulty: 'Easy',
+    category: "Frontend Development",
+    difficulty: "Easy",
     attempts: 12,
     bestScore: 85,
-    thumbnail: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=200&fit=crop',
+    thumbnail:
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=200&fit=crop",
     questions: [
       {
-        id: 'q1',
-        question: 'What is the virtual DOM in React?',
+        id: "q1",
+        question: "What is the virtual DOM in React?",
         options: [
-          'A copy of the real DOM kept in memory',
-          'A new browser API',
-          'A React component',
-          'A CSS framework'
+          "A copy of the real DOM kept in memory",
+          "A new browser API",
+          "A React component",
+          "A CSS framework",
         ],
         correct: 0,
-        explanation: 'The virtual DOM is a programming concept where a virtual representation of the UI is kept in memory and synced with the real DOM.',
-        difficulty: 'Easy',
-        topic: 'React Basics'
+        explanation:
+          "The virtual DOM is a programming concept where a virtual representation of the UI is kept in memory and synced with the real DOM.",
+        difficulty: "Easy",
+        topic: "React Basics",
       },
       {
-        id: 'q2',
-        question: 'Which hook is used for side effects in React?',
-        options: ['useState', 'useEffect', 'useContext', 'useReducer'],
+        id: "q2",
+        question: "Which hook is used for side effects in React?",
+        options: ["useState", "useEffect", "useContext", "useReducer"],
         correct: 1,
-        explanation: 'useEffect is the hook used for performing side effects in functional components.',
-        difficulty: 'Medium',
-        topic: 'React Hooks'
-      }
-    ]
+        explanation:
+          "useEffect is the hook used for performing side effects in functional components.",
+        difficulty: "Medium",
+        topic: "React Hooks",
+      },
+    ],
   },
   {
-    id: 'quiz2',
-    title: 'JavaScript ES6+',
-    description: 'Advanced JavaScript concepts including async/await, destructuring, and arrow functions.',
+    id: "quiz2",
+    title: "JavaScript ES6+",
+    description:
+      "Advanced JavaScript concepts including async/await, destructuring, and arrow functions.",
     timeLimit: 45,
-    category: 'Programming',
-    difficulty: 'Medium',
+    category: "Programming",
+    difficulty: "Medium",
     attempts: 8,
     bestScore: 92,
-    thumbnail: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=200&fit=crop',
-    questions: []
+    thumbnail:
+      "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=200&fit=crop",
+    questions: [],
   },
   {
-    id: 'quiz3',
-    title: 'Data Structures & Algorithms',
-    description: 'Comprehensive test on arrays, linked lists, trees, and sorting algorithms.',
+    id: "quiz3",
+    title: "Data Structures & Algorithms",
+    description:
+      "Comprehensive test on arrays, linked lists, trees, and sorting algorithms.",
     timeLimit: 60,
-    category: 'Computer Science',
-    difficulty: 'Hard',
+    category: "Computer Science",
+    difficulty: "Hard",
     attempts: 3,
     bestScore: 78,
-    thumbnail: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=200&fit=crop',
-    questions: []
-  }
+    thumbnail:
+      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=200&fit=crop",
+    questions: [],
+  },
 ];
 
 const sampleExams: Exam[] = [
   {
-    id: 'exam1',
-    title: 'Full Stack Developer Certification',
-    description: 'Comprehensive exam covering frontend, backend, and database technologies.',
+    id: "exam1",
+    title: "Full Stack Developer Certification",
+    description:
+      "Comprehensive exam covering frontend, backend, and database technologies.",
     duration: 120,
     totalQuestions: 80,
     passingScore: 75,
-    category: 'Certification',
-    difficulty: 'Hard',
-    status: 'upcoming',
-    scheduledDate: '2025-02-15T10:00:00Z',
-    instructor: 'Dr. Sarah Chen'
+    category: "Certification",
+    difficulty: "Hard",
+    status: "upcoming",
+    scheduledDate: "2025-02-15T10:00:00Z",
+    instructor: "Dr. Sarah Chen",
   },
   {
-    id: 'exam2',
-    title: 'Python Programming Assessment',
-    description: 'Test your Python skills with practical coding challenges and theory questions.',
+    id: "exam2",
+    title: "Python Programming Assessment",
+    description:
+      "Test your Python skills with practical coding challenges and theory questions.",
     duration: 90,
     totalQuestions: 50,
     passingScore: 70,
-    category: 'Programming',
-    difficulty: 'Medium',
-    status: 'active',
-    scheduledDate: '2025-01-28T14:00:00Z',
-    instructor: 'Prof. Alex Kumar'
+    category: "Programming",
+    difficulty: "Medium",
+    status: "active",
+    scheduledDate: "2025-01-28T14:00:00Z",
+    instructor: "Prof. Alex Kumar",
   },
   {
-    id: 'exam3',
-    title: 'Machine Learning Fundamentals',
-    description: 'Evaluate your understanding of ML algorithms, data preprocessing, and model evaluation.',
+    id: "exam3",
+    title: "Machine Learning Fundamentals",
+    description:
+      "Evaluate your understanding of ML algorithms, data preprocessing, and model evaluation.",
     duration: 100,
     totalQuestions: 60,
     passingScore: 80,
-    category: 'AI/ML',
-    difficulty: 'Hard',
-    status: 'completed',
-    scheduledDate: '2025-01-15T09:00:00Z',
-    instructor: 'Dr. Maya Patel'
-  }
+    category: "AI/ML",
+    difficulty: "Hard",
+    status: "completed",
+    scheduledDate: "2025-01-15T09:00:00Z",
+    instructor: "Dr. Maya Patel",
+  },
 ];
 
 export default function QuizPlatform() {
-  const [activeTab, setActiveTab] = useState('quizzes');
+  const [activeTab, setActiveTab] = useState("quizzes");
   const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<number[]>([]);
@@ -167,7 +197,7 @@ export default function QuizPlatform() {
 
   // Mock authentication state
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [currentUser, setCurrentUser] = useState('user_12345');
+  const [currentUser, setCurrentUser] = useState("user_12345");
 
   const handleLogout = () => {
     setIsAuthenticated(false);
@@ -204,14 +234,17 @@ export default function QuizPlatform() {
 
   const selectAnswer = (answerIndex: number) => {
     if (quizCompleted) return;
-    
+
     const newAnswers = [...userAnswers];
     newAnswers[currentQuestionIndex] = answerIndex;
     setUserAnswers(newAnswers);
   };
 
   const nextQuestion = () => {
-    if (selectedQuiz && currentQuestionIndex < selectedQuiz.questions.length - 1) {
+    if (
+      selectedQuiz &&
+      currentQuestionIndex < selectedQuiz.questions.length - 1
+    ) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       setQuizCompleted(true);
@@ -221,15 +254,17 @@ export default function QuizPlatform() {
 
   const calculateScore = () => {
     if (!selectedQuiz) return;
-    
+
     let correct = 0;
     selectedQuiz.questions.forEach((question, index) => {
       if (userAnswers[index] === question.correct) {
         correct++;
       }
     });
-    
-    const percentage = Math.round((correct / selectedQuiz.questions.length) * 100);
+
+    const percentage = Math.round(
+      (correct / selectedQuiz.questions.length) * 100,
+    );
     setScore(percentage);
   };
 
@@ -246,24 +281,32 @@ export default function QuizPlatform() {
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Easy': return 'bg-green-500';
-      case 'Medium': return 'bg-yellow-500';
-      case 'Hard': return 'bg-red-500';
-      default: return 'bg-gray-500';
+      case "Easy":
+        return "bg-green-500";
+      case "Medium":
+        return "bg-yellow-500";
+      case "Hard":
+        return "bg-red-500";
+      default:
+        return "bg-gray-500";
     }
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'upcoming': return 'bg-blue-500';
-      case 'active': return 'bg-green-500';
-      case 'completed': return 'bg-gray-500';
-      default: return 'bg-gray-500';
+      case "upcoming":
+        return "bg-blue-500";
+      case "active":
+        return "bg-green-500";
+      case "completed":
+        return "bg-gray-500";
+      default:
+        return "bg-gray-500";
     }
   };
 
@@ -281,19 +324,29 @@ export default function QuizPlatform() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-accent/10 rounded-full mb-6 border border-brand/20 shadow-lg backdrop-blur-sm">
             <Brain className="w-5 h-5 text-brand mr-2" />
-            <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">Knowledge Assessment Platform</span>
+            <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">
+              Knowledge Assessment Platform
+            </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
             Quiz & Exam
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent"> Platform</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">
+              {" "}
+              Platform
+            </span>
           </h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Test your knowledge, track your progress, and earn certifications with our comprehensive assessment platform.
+            Test your knowledge, track your progress, and earn certifications
+            with our comprehensive assessment platform.
           </p>
         </div>
 
         {!selectedQuiz ? (
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <Tabs
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="w-full"
+          >
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
               <TabsTrigger value="quizzes">Practice Quizzes</TabsTrigger>
               <TabsTrigger value="exams">Certification Exams</TabsTrigger>
@@ -302,27 +355,32 @@ export default function QuizPlatform() {
             <TabsContent value="quizzes" className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {sampleQuizzes.map((quiz) => (
-                  <Card key={quiz.id} className="professional-card hover:shadow-xl transition-all duration-300 group">
+                  <Card
+                    key={quiz.id}
+                    className="professional-card hover:shadow-xl transition-all duration-300 group"
+                  >
                     <div className="relative">
-                      <img 
-                        src={quiz.thumbnail} 
+                      <img
+                        src={quiz.thumbnail}
                         alt={quiz.title}
                         className="w-full h-48 object-cover rounded-t-lg"
                       />
                       <div className="absolute top-4 right-4">
-                        <Badge className={`${getDifficultyColor(quiz.difficulty)} text-white`}>
+                        <Badge
+                          className={`${getDifficultyColor(quiz.difficulty)} text-white`}
+                        >
                           {quiz.difficulty}
                         </Badge>
                       </div>
                     </div>
-                    
+
                     <CardHeader>
                       <CardTitle className="text-xl group-hover:text-teal-600 transition-colors">
                         {quiz.title}
                       </CardTitle>
                       <CardDescription>{quiz.description}</CardDescription>
                     </CardHeader>
-                    
+
                     <CardContent>
                       <div className="space-y-4">
                         <div className="flex items-center justify-between text-sm text-gray-600">
@@ -335,11 +393,13 @@ export default function QuizPlatform() {
                             <span>{quiz.attempts} attempts</span>
                           </div>
                         </div>
-                        
+
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="text-sm text-gray-600">Best Score</p>
-                            <p className="text-lg font-bold text-brand">{quiz.bestScore}%</p>
+                            <p className="text-lg font-bold text-brand">
+                              {quiz.bestScore}%
+                            </p>
                           </div>
                           <Button
                             onClick={() => startQuiz(quiz)}
@@ -359,17 +419,22 @@ export default function QuizPlatform() {
             <TabsContent value="exams" className="space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {sampleExams.map((exam) => (
-                  <Card key={exam.id} className="professional-card hover:shadow-xl transition-all duration-300">
+                  <Card
+                    key={exam.id}
+                    className="professional-card hover:shadow-xl transition-all duration-300"
+                  >
                     <CardHeader>
                       <div className="flex items-center justify-between">
                         <CardTitle className="text-xl">{exam.title}</CardTitle>
-                        <Badge className={`${getStatusColor(exam.status)} text-white capitalize`}>
+                        <Badge
+                          className={`${getStatusColor(exam.status)} text-white capitalize`}
+                        >
                           {exam.status}
                         </Badge>
                       </div>
                       <CardDescription>{exam.description}</CardDescription>
                     </CardHeader>
-                    
+
                     <CardContent>
                       <div className="space-y-4">
                         <div className="grid grid-cols-2 gap-4 text-sm">
@@ -387,26 +452,43 @@ export default function QuizPlatform() {
                           </div>
                           <div className="flex items-center">
                             <Calendar className="w-4 h-4 mr-2 text-gray-500" />
-                            <span>{new Date(exam.scheduledDate).toLocaleDateString()}</span>
+                            <span>
+                              {new Date(
+                                exam.scheduledDate,
+                              ).toLocaleDateString()}
+                            </span>
                           </div>
                         </div>
-                        
+
                         <div className="flex items-center justify-between">
                           <div className="flex items-center">
                             <Avatar className="w-8 h-8 mr-2">
-                              <AvatarFallback>{exam.instructor.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                              <AvatarFallback>
+                                {exam.instructor
+                                  .split(" ")
+                                  .map((n) => n[0])
+                                  .join("")}
+                              </AvatarFallback>
                             </Avatar>
-                            <span className="text-sm text-gray-600">{exam.instructor}</span>
+                            <span className="text-sm text-gray-600">
+                              {exam.instructor}
+                            </span>
                           </div>
-                          
-                          <Button 
-                            variant={exam.status === 'active' ? 'default' : 'outline'}
-                            disabled={exam.status === 'completed'}
-                            className={exam.status === 'active' ? 'bg-gradient-to-r from-brand to-brand-600 hover:from-brand-700 hover:to-brand-700' : ''}
+
+                          <Button
+                            variant={
+                              exam.status === "active" ? "default" : "outline"
+                            }
+                            disabled={exam.status === "completed"}
+                            className={
+                              exam.status === "active"
+                                ? "bg-gradient-to-r from-brand to-brand-600 hover:from-brand-700 hover:to-brand-700"
+                                : ""
+                            }
                           >
-                            {exam.status === 'upcoming' && 'Register'}
-                            {exam.status === 'active' && 'Take Exam'}
-                            {exam.status === 'completed' && 'View Results'}
+                            {exam.status === "upcoming" && "Register"}
+                            {exam.status === "active" && "Take Exam"}
+                            {exam.status === "completed" && "View Results"}
                           </Button>
                         </div>
                       </div>
@@ -424,9 +506,12 @@ export default function QuizPlatform() {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
-                      <CardTitle className="text-2xl">{selectedQuiz.title}</CardTitle>
+                      <CardTitle className="text-2xl">
+                        {selectedQuiz.title}
+                      </CardTitle>
                       <CardDescription>
-                        Question {currentQuestionIndex + 1} of {selectedQuiz.questions.length}
+                        Question {currentQuestionIndex + 1} of{" "}
+                        {selectedQuiz.questions.length}
                       </CardDescription>
                     </div>
                     <div className="text-right">
@@ -434,51 +519,66 @@ export default function QuizPlatform() {
                         <Clock className="w-5 h-5 mr-2" />
                         {formatTime(timeRemaining)}
                       </div>
-                      <Progress 
-                        value={(currentQuestionIndex / selectedQuiz.questions.length) * 100} 
+                      <Progress
+                        value={
+                          (currentQuestionIndex /
+                            selectedQuiz.questions.length) *
+                          100
+                        }
                         className="w-32 mt-2"
                       />
                     </div>
                   </div>
                 </CardHeader>
-                
+
                 <CardContent>
                   {selectedQuiz.questions.length > 0 && (
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-xl font-semibold mb-4">
-                          {selectedQuiz.questions[currentQuestionIndex]?.question}
+                          {
+                            selectedQuiz.questions[currentQuestionIndex]
+                              ?.question
+                          }
                         </h3>
-                        
+
                         <div className="space-y-3">
-                          {selectedQuiz.questions[currentQuestionIndex]?.options.map((option, index) => (
+                          {selectedQuiz.questions[
+                            currentQuestionIndex
+                          ]?.options.map((option, index) => (
                             <button
                               key={index}
                               onClick={() => selectAnswer(index)}
                               className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-200 ${
                                 userAnswers[currentQuestionIndex] === index
-                                  ? 'border-brand bg-brand-50 text-brand-900'
-                                  : 'border-neutral-200 hover:border-brand hover:bg-brand-50/50'
+                                  ? "border-brand bg-brand-50 text-brand-900"
+                                  : "border-neutral-200 hover:border-brand hover:bg-brand-50/50"
                               }`}
                             >
-                              <span className="font-medium">{String.fromCharCode(65 + index)}.</span> {option}
+                              <span className="font-medium">
+                                {String.fromCharCode(65 + index)}.
+                              </span>{" "}
+                              {option}
                             </button>
                           ))}
                         </div>
                       </div>
-                      
+
                       <div className="flex items-center justify-between">
                         <Button variant="outline" onClick={resetQuiz}>
                           <RotateCcw className="w-4 h-4 mr-2" />
                           Exit Quiz
                         </Button>
-                        
-                        <Button 
+
+                        <Button
                           onClick={nextQuestion}
                           disabled={userAnswers[currentQuestionIndex] === -1}
                           className="bg-gradient-to-r from-brand to-brand-600 hover:from-brand-700 hover:to-brand-700"
                         >
-                          {currentQuestionIndex === selectedQuiz.questions.length - 1 ? 'Submit Quiz' : 'Next Question'}
+                          {currentQuestionIndex ===
+                          selectedQuiz.questions.length - 1
+                            ? "Submit Quiz"
+                            : "Next Question"}
                         </Button>
                       </div>
                     </div>
@@ -498,35 +598,49 @@ export default function QuizPlatform() {
                       <Target className="w-20 h-20 text-gray-500 mx-auto mb-4" />
                     )}
                   </div>
-                  
+
                   <h2 className="text-3xl font-bold mb-4">Quiz Completed!</h2>
                   <p className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent mb-4">
                     {score}%
                   </p>
-                  
+
                   <div className="grid grid-cols-3 gap-6 max-w-md mx-auto mb-8">
                     <div>
                       <p className="text-2xl font-bold text-success">
-                        {userAnswers.filter((answer, index) => answer === selectedQuiz.questions[index]?.correct).length}
+                        {
+                          userAnswers.filter(
+                            (answer, index) =>
+                              answer === selectedQuiz.questions[index]?.correct,
+                          ).length
+                        }
                       </p>
                       <p className="text-sm text-neutral-600">Correct</p>
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-accent">
-                        {userAnswers.filter((answer, index) => answer !== -1 && answer !== selectedQuiz.questions[index]?.correct).length}
+                        {
+                          userAnswers.filter(
+                            (answer, index) =>
+                              answer !== -1 &&
+                              answer !== selectedQuiz.questions[index]?.correct,
+                          ).length
+                        }
                       </p>
                       <p className="text-sm text-neutral-600">Incorrect</p>
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-neutral-600">
-                        {userAnswers.filter(answer => answer === -1).length}
+                        {userAnswers.filter((answer) => answer === -1).length}
                       </p>
                       <p className="text-sm text-neutral-600">Skipped</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button onClick={() => startQuiz(selectedQuiz)} className="bg-gradient-to-r from-brand to-brand-600">
+                    <Button
+                      onClick={() => startQuiz(selectedQuiz)}
+                      className="bg-gradient-to-r from-brand to-brand-600"
+                    >
                       <RotateCcw className="w-4 h-4 mr-2" />
                       Retake Quiz
                     </Button>

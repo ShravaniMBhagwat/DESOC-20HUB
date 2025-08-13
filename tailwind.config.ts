@@ -58,70 +58,70 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         // Modern sophisticated color palette
-        'brand': {
-          DEFAULT: '#6366F1', // Indigo-based primary
-          50: '#EEF2FF',
-          100: '#E0E7FF',
-          200: '#C7D2FE',
-          300: '#A5B4FC',
-          400: '#818CF8',
-          500: '#6366F1',
-          600: '#4F46E5',
-          700: '#4338CA',
-          800: '#3730A3',
-          900: '#312E81',
+        brand: {
+          DEFAULT: "#6366F1", // Indigo-based primary
+          50: "#EEF2FF",
+          100: "#E0E7FF",
+          200: "#C7D2FE",
+          300: "#A5B4FC",
+          400: "#818CF8",
+          500: "#6366F1",
+          600: "#4F46E5",
+          700: "#4338CA",
+          800: "#3730A3",
+          900: "#312E81",
         },
-        'accent': {
-          DEFAULT: '#EC4899', // Pink accent for highlights
-          50: '#FDF2F8',
-          100: '#FCE7F3',
-          200: '#FBCFE8',
-          300: '#F9A8D4',
-          400: '#F472B6',
-          500: '#EC4899',
-          600: '#DB2777',
-          700: '#BE185D',
-          800: '#9D174D',
-          900: '#831843',
+        accent: {
+          DEFAULT: "#EC4899", // Pink accent for highlights
+          50: "#FDF2F8",
+          100: "#FCE7F3",
+          200: "#FBCFE8",
+          300: "#F9A8D4",
+          400: "#F472B6",
+          500: "#EC4899",
+          600: "#DB2777",
+          700: "#BE185D",
+          800: "#9D174D",
+          900: "#831843",
         },
-        'success': {
-          DEFAULT: '#059669', // Emerald green
-          50: '#ECFDF5',
-          100: '#D1FAE5',
-          200: '#A7F3D0',
-          300: '#6EE7B7',
-          400: '#34D399',
-          500: '#10B981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065F46',
-          900: '#064E3B',
+        success: {
+          DEFAULT: "#059669", // Emerald green
+          50: "#ECFDF5",
+          100: "#D1FAE5",
+          200: "#A7F3D0",
+          300: "#6EE7B7",
+          400: "#34D399",
+          500: "#10B981",
+          600: "#059669",
+          700: "#047857",
+          800: "#065F46",
+          900: "#064E3B",
         },
-        'warning': {
-          DEFAULT: '#D97706', // Amber warning
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#F59E0B',
-          600: '#D97706',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
+        warning: {
+          DEFAULT: "#D97706", // Amber warning
+          50: "#FFFBEB",
+          100: "#FEF3C7",
+          200: "#FDE68A",
+          300: "#FCD34D",
+          400: "#FBBF24",
+          500: "#F59E0B",
+          600: "#D97706",
+          700: "#B45309",
+          800: "#92400E",
+          900: "#78350F",
         },
-        'neutral': {
-          DEFAULT: '#6B7280',
-          50: '#F9FAFB',
-          100: '#F3F4F6',
-          200: '#E5E7EB',
-          300: '#D1D5DB',
-          400: '#9CA3AF',
-          500: '#6B7280',
-          600: '#4B5563',
-          700: '#374151',
-          800: '#1F2937',
-          900: '#111827',
+        neutral: {
+          DEFAULT: "#6B7280",
+          50: "#F9FAFB",
+          100: "#F3F4F6",
+          200: "#E5E7EB",
+          300: "#D1D5DB",
+          400: "#9CA3AF",
+          500: "#6B7280",
+          600: "#4B5563",
+          700: "#374151",
+          800: "#1F2937",
+          900: "#111827",
         },
       },
       borderRadius: {
@@ -148,13 +148,15 @@ export default {
         },
         "glow-pulse": {
           "0%, 100%": {
-            boxShadow: "0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor",
+            boxShadow:
+              "0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor",
           },
           "50%": {
-            boxShadow: "0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor",
+            boxShadow:
+              "0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor",
           },
         },
-        "float": {
+        float: {
           "0%, 100%": {
             transform: "translateY(0px)",
           },
@@ -220,7 +222,7 @@ export default {
             animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
           },
         },
-        "wiggle": {
+        wiggle: {
           "0%, 100%": {
             transform: "rotate(-3deg)",
           },
@@ -228,7 +230,7 @@ export default {
             transform: "rotate(3deg)",
           },
         },
-        "shimmer": {
+        shimmer: {
           "0%": {
             backgroundPosition: "-200% 0",
           },
@@ -257,33 +259,33 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
-        "float": "float 3s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
         "slide-in-right": "slide-in-right 0.5s ease-out",
         "slide-in-left": "slide-in-left 0.5s ease-out",
         "slide-in-up": "slide-in-up 0.6s ease-out",
         "fade-in": "fade-in 0.8s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
         "bounce-gentle": "bounce-gentle 2s infinite",
-        "wiggle": "wiggle 1s ease-in-out infinite",
-        "shimmer": "shimmer 2s linear infinite",
+        wiggle: "wiggle 1s ease-in-out infinite",
+        shimmer: "shimmer 2s linear infinite",
         "gradient-shift": "gradient-shift 3s ease infinite",
         "rotate-slow": "rotate-slow 20s linear infinite",
         "float-delayed": "float 4s ease-in-out infinite 1s",
         "float-slow": "float 6s ease-in-out infinite 2s",
       },
       boxShadow: {
-        '3xl': '0 35px 60px -12px rgba(0, 0, 0, 0.25)',
-        '4xl': '0 40px 80px -12px rgba(0, 0, 0, 0.3)',
-        'glow': '0 0 20px rgba(99, 102, 241, 0.4)',
-        'glow-lg': '0 0 30px rgba(99, 102, 241, 0.5)',
-        'glow-accent': '0 0 20px rgba(236, 72, 153, 0.4)',
-        'glow-success': '0 0 20px rgba(5, 150, 105, 0.4)',
+        "3xl": "0 35px 60px -12px rgba(0, 0, 0, 0.25)",
+        "4xl": "0 40px 80px -12px rgba(0, 0, 0, 0.3)",
+        glow: "0 0 20px rgba(99, 102, 241, 0.4)",
+        "glow-lg": "0 0 30px rgba(99, 102, 241, 0.5)",
+        "glow-accent": "0 0 20px rgba(236, 72, 153, 0.4)",
+        "glow-success": "0 0 20px rgba(5, 150, 105, 0.4)",
       },
       borderWidth: {
-        '3': '3px',
+        "3": "3px",
       },
       backgroundSize: {
-        '200': '200% 200%',
+        "200": "200% 200%",
       },
     },
   },

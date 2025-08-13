@@ -1,18 +1,41 @@
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import Navigation from '@/components/Navigation';
-import MotionWrapper, { StaggeredList } from '@/components/MotionWrapper';
+import { useState, useEffect } from "react";
 import {
-  Clock, Trophy, TrendingUp, BookOpen, Target, Award,
-  Calendar, Users, Brain, Zap, CheckCircle, Star,
-  BarChart3, PieChart, Activity, Timer, Flame,
-  ArrowUpRight, ArrowDownRight, Plus, Eye
-} from 'lucide-react';
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Navigation from "@/components/Navigation";
+import MotionWrapper, { StaggeredList } from "@/components/MotionWrapper";
+import {
+  Clock,
+  Trophy,
+  TrendingUp,
+  BookOpen,
+  Target,
+  Award,
+  Calendar,
+  Users,
+  Brain,
+  Zap,
+  CheckCircle,
+  Star,
+  BarChart3,
+  PieChart,
+  Activity,
+  Timer,
+  Flame,
+  ArrowUpRight,
+  ArrowDownRight,
+  Plus,
+  Eye,
+} from "lucide-react";
 
 interface LearningStats {
   totalHours: number;
@@ -27,11 +50,11 @@ interface LearningStats {
   skillsLearned: string[];
   recentActivities: Array<{
     id: string;
-    type: 'quiz' | 'exam' | 'workshop' | 'achievement';
+    type: "quiz" | "exam" | "workshop" | "achievement";
     title: string;
     date: string;
     score?: number;
-    status: 'completed' | 'in-progress' | 'upcoming';
+    status: "completed" | "in-progress" | "upcoming";
   }>;
   weeklyProgress: Array<{
     day: string;
@@ -47,7 +70,7 @@ interface LearningStats {
     title: string;
     type: string;
     date: string;
-    priority: 'high' | 'medium' | 'low';
+    priority: "high" | "medium" | "low";
   }>;
 }
 
@@ -61,103 +84,140 @@ const mockLearningStats: LearningStats = {
   certificatesEarned: 5,
   currentStreak: 7,
   longestStreak: 23,
-  skillsLearned: ['React', 'TypeScript', 'Node.js', 'Python', 'Machine Learning', 'Cloud Computing'],
+  skillsLearned: [
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Python",
+    "Machine Learning",
+    "Cloud Computing",
+  ],
   recentActivities: [
     {
-      id: '1',
-      type: 'quiz',
-      title: 'React Fundamentals Quiz',
-      date: '2025-01-26',
+      id: "1",
+      type: "quiz",
+      title: "React Fundamentals Quiz",
+      date: "2025-01-26",
       score: 92,
-      status: 'completed'
+      status: "completed",
     },
     {
-      id: '2',
-      type: 'workshop',
-      title: 'Advanced TypeScript Workshop',
-      date: '2025-01-25',
-      status: 'completed'
+      id: "2",
+      type: "workshop",
+      title: "Advanced TypeScript Workshop",
+      date: "2025-01-25",
+      status: "completed",
     },
     {
-      id: '3',
-      type: 'exam',
-      title: 'Full Stack Certification Exam',
-      date: '2025-01-24',
+      id: "3",
+      type: "exam",
+      title: "Full Stack Certification Exam",
+      date: "2025-01-24",
       score: 85,
-      status: 'completed'
+      status: "completed",
     },
     {
-      id: '4',
-      type: 'achievement',
-      title: 'Earned Python Expert Certificate',
-      date: '2025-01-23',
-      status: 'completed'
+      id: "4",
+      type: "achievement",
+      title: "Earned Python Expert Certificate",
+      date: "2025-01-23",
+      status: "completed",
     },
     {
-      id: '5',
-      type: 'workshop',
-      title: 'Machine Learning Bootcamp',
-      date: '2025-01-30',
-      status: 'upcoming'
-    }
+      id: "5",
+      type: "workshop",
+      title: "Machine Learning Bootcamp",
+      date: "2025-01-30",
+      status: "upcoming",
+    },
   ],
   weeklyProgress: [
-    { day: 'Mon', hours: 2.5 },
-    { day: 'Tue', hours: 1.8 },
-    { day: 'Wed', hours: 3.2 },
-    { day: 'Thu', hours: 2.1 },
-    { day: 'Fri', hours: 1.5 },
-    { day: 'Sat', hours: 0.8 },
-    { day: 'Sun', hours: 0.4 }
+    { day: "Mon", hours: 2.5 },
+    { day: "Tue", hours: 1.8 },
+    { day: "Wed", hours: 3.2 },
+    { day: "Thu", hours: 2.1 },
+    { day: "Fri", hours: 1.5 },
+    { day: "Sat", hours: 0.8 },
+    { day: "Sun", hours: 0.4 },
   ],
   topSkills: [
-    { skill: 'JavaScript', level: 8, progress: 85 },
-    { skill: 'React', level: 7, progress: 78 },
-    { skill: 'Python', level: 6, progress: 65 },
-    { skill: 'TypeScript', level: 5, progress: 52 },
-    { skill: 'Node.js', level: 4, progress: 43 }
+    { skill: "JavaScript", level: 8, progress: 85 },
+    { skill: "React", level: 7, progress: 78 },
+    { skill: "Python", level: 6, progress: 65 },
+    { skill: "TypeScript", level: 5, progress: 52 },
+    { skill: "Node.js", level: 4, progress: 43 },
   ],
   upcomingDeadlines: [
     {
-      id: '1',
-      title: 'Machine Learning Project Submission',
-      type: 'Assignment',
-      date: '2025-02-01',
-      priority: 'high'
+      id: "1",
+      title: "Machine Learning Project Submission",
+      type: "Assignment",
+      date: "2025-02-01",
+      priority: "high",
     },
     {
-      id: '2',
-      title: 'Cloud Computing Certification Exam',
-      type: 'Exam',
-      date: '2025-02-05',
-      priority: 'medium'
+      id: "2",
+      title: "Cloud Computing Certification Exam",
+      type: "Exam",
+      date: "2025-02-05",
+      priority: "medium",
     },
     {
-      id: '3',
-      title: 'DevOps Workshop Registration',
-      type: 'Registration',
-      date: '2025-02-08',
-      priority: 'low'
-    }
-  ]
+      id: "3",
+      title: "DevOps Workshop Registration",
+      type: "Registration",
+      date: "2025-02-08",
+      priority: "low",
+    },
+  ],
 };
 
 const achievementBadges = [
-  { name: 'Fast Learner', description: 'Completed 5 courses in a month', icon: '⚡', earned: true },
-  { name: 'Perfect Score', description: 'Scored 100% on an exam', icon: '🎯', earned: true },
-  { name: 'Streak Master', description: '20+ day learning streak', icon: '🔥', earned: true },
-  { name: 'Skill Collector', description: 'Learned 10+ skills', icon: '🎓', earned: false },
-  { name: 'Community Helper', description: 'Helped 50+ peers', icon: '🤝', earned: false },
-  { name: 'Innovation Leader', description: 'Led a successful project', icon: '🚀', earned: true }
+  {
+    name: "Fast Learner",
+    description: "Completed 5 courses in a month",
+    icon: "⚡",
+    earned: true,
+  },
+  {
+    name: "Perfect Score",
+    description: "Scored 100% on an exam",
+    icon: "🎯",
+    earned: true,
+  },
+  {
+    name: "Streak Master",
+    description: "20+ day learning streak",
+    icon: "🔥",
+    earned: true,
+  },
+  {
+    name: "Skill Collector",
+    description: "Learned 10+ skills",
+    icon: "🎓",
+    earned: false,
+  },
+  {
+    name: "Community Helper",
+    description: "Helped 50+ peers",
+    icon: "🤝",
+    earned: false,
+  },
+  {
+    name: "Innovation Leader",
+    description: "Led a successful project",
+    icon: "🚀",
+    earned: true,
+  },
 ];
 
 export default function Dashboard() {
   const [stats] = useState<LearningStats>(mockLearningStats);
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState("overview");
 
   // Mock authentication state - in a real app, this would come from a global state/context
   const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [currentUser, setCurrentUser] = useState('user_12345');
+  const [currentUser, setCurrentUser] = useState("user_12345");
 
   const handleLogout = () => {
     setIsAuthenticated(false);
@@ -166,41 +226,55 @@ export default function Dashboard() {
 
   const getActivityIcon = (type: string) => {
     switch (type) {
-      case 'quiz': return Brain;
-      case 'exam': return Trophy;
-      case 'workshop': return BookOpen;
-      case 'achievement': return Award;
-      default: return CheckCircle;
+      case "quiz":
+        return Brain;
+      case "exam":
+        return Trophy;
+      case "workshop":
+        return BookOpen;
+      case "achievement":
+        return Award;
+      default:
+        return CheckCircle;
     }
   };
 
   const getActivityColor = (type: string) => {
     switch (type) {
-      case 'quiz': return 'text-blue-600';
-      case 'exam': return 'text-yellow-600';
-      case 'workshop': return 'text-green-600';
-      case 'achievement': return 'text-purple-600';
-      default: return 'text-gray-600';
+      case "quiz":
+        return "text-blue-600";
+      case "exam":
+        return "text-yellow-600";
+      case "workshop":
+        return "text-green-600";
+      case "achievement":
+        return "text-purple-600";
+      default:
+        return "text-gray-600";
     }
   };
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return 'bg-red-100 text-red-800 border-red-200';
-      case 'medium': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'low': return 'bg-green-100 text-green-800 border-green-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case "high":
+        return "bg-red-100 text-red-800 border-red-200";
+      case "medium":
+        return "bg-yellow-100 text-yellow-800 border-yellow-200";
+      case "low":
+        return "bg-green-100 text-green-800 border-green-200";
+      default:
+        return "bg-gray-100 text-gray-800 border-gray-200";
     }
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
     });
   };
 
-  const maxWeeklyHours = Math.max(...stats.weeklyProgress.map(p => p.hours));
+  const maxWeeklyHours = Math.max(...stats.weeklyProgress.map((p) => p.hours));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-brand-50/20 to-accent-50/20">
@@ -218,22 +292,31 @@ export default function Dashboard() {
             <div>
               <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand/10 to-accent/10 rounded-full mb-4 hover:scale-105 transition-transform duration-300">
                 <Activity className="w-4 h-4 text-brand mr-2 animate-pulse" />
-                <span className="text-sm font-semibold text-brand">Learning Analytics</span>
+                <span className="text-sm font-semibold text-brand">
+                  Learning Analytics
+                </span>
               </div>
               <h1 className="text-4xl font-bold text-neutral-900 mb-2">
                 Your Learning
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent animate-gradient-shift bg-size-200"> Dashboard</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent animate-gradient-shift bg-size-200">
+                  {" "}
+                  Dashboard
+                </span>
               </h1>
-              <p className="text-lg text-neutral-600">Track your progress and stay motivated on your learning journey</p>
+              <p className="text-lg text-neutral-600">
+                Track your progress and stay motivated on your learning journey
+              </p>
             </div>
           </MotionWrapper>
-          
+
           <MotionWrapper animation="slide-right" delay={200}>
             <div className="text-right">
               <p className="text-sm text-neutral-500">Current Streak</p>
               <div className="flex items-center">
                 <Flame className="w-6 h-6 text-orange-500 mr-2 animate-bounce-gentle" />
-                <span className="text-2xl font-bold text-neutral-900">{stats.currentStreak} days</span>
+                <span className="text-2xl font-bold text-neutral-900">
+                  {stats.currentStreak} days
+                </span>
               </div>
             </div>
           </MotionWrapper>
@@ -249,14 +332,23 @@ export default function Dashboard() {
 
           <TabsContent value="overview" className="space-y-8">
             {/* Key Metrics */}
-            <StaggeredList staggerDelay={100} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <StaggeredList
+              staggerDelay={100}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            >
               <Card className="professional-card bg-gradient-to-br from-brand-50 to-brand-100 border-brand-200 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-brand-700">Total Hours</p>
-                      <p className="text-3xl font-bold text-brand-900 group-hover:animate-bounce-gentle">{stats.totalHours}</p>
-                      <p className="text-xs text-brand-600">+{stats.thisWeekHours} this week</p>
+                      <p className="text-sm font-medium text-brand-700">
+                        Total Hours
+                      </p>
+                      <p className="text-3xl font-bold text-brand-900 group-hover:animate-bounce-gentle">
+                        {stats.totalHours}
+                      </p>
+                      <p className="text-xs text-brand-600">
+                        +{stats.thisWeekHours} this week
+                      </p>
                     </div>
                     <Clock className="w-8 h-8 text-brand-600 group-hover:animate-wiggle" />
                   </div>
@@ -267,9 +359,15 @@ export default function Dashboard() {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-accent-700">Exams Completed</p>
-                      <p className="text-3xl font-bold text-accent-900 group-hover:animate-bounce-gentle">{stats.examsCompleted}</p>
-                      <p className="text-xs text-accent-600">{stats.averageScore}% avg score</p>
+                      <p className="text-sm font-medium text-accent-700">
+                        Exams Completed
+                      </p>
+                      <p className="text-3xl font-bold text-accent-900 group-hover:animate-bounce-gentle">
+                        {stats.examsCompleted}
+                      </p>
+                      <p className="text-xs text-accent-600">
+                        {stats.averageScore}% avg score
+                      </p>
                     </div>
                     <Trophy className="w-8 h-8 text-accent-600 group-hover:animate-bounce-gentle" />
                   </div>
@@ -280,9 +378,19 @@ export default function Dashboard() {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-success-700">Courses</p>
-                      <p className="text-3xl font-bold text-success-900 group-hover:animate-bounce-gentle">{stats.coursesCompleted}/{stats.coursesEnrolled}</p>
-                      <p className="text-xs text-success-600">{Math.round((stats.coursesCompleted / stats.coursesEnrolled) * 100)}% completed</p>
+                      <p className="text-sm font-medium text-success-700">
+                        Courses
+                      </p>
+                      <p className="text-3xl font-bold text-success-900 group-hover:animate-bounce-gentle">
+                        {stats.coursesCompleted}/{stats.coursesEnrolled}
+                      </p>
+                      <p className="text-xs text-success-600">
+                        {Math.round(
+                          (stats.coursesCompleted / stats.coursesEnrolled) *
+                            100,
+                        )}
+                        % completed
+                      </p>
                     </div>
                     <BookOpen className="w-8 h-8 text-success-600 group-hover:animate-wiggle" />
                   </div>
@@ -293,9 +401,15 @@ export default function Dashboard() {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-warning-700">Certificates</p>
-                      <p className="text-3xl font-bold text-warning-900 group-hover:animate-bounce-gentle">{stats.certificatesEarned}</p>
-                      <p className="text-xs text-warning-600">Professional level</p>
+                      <p className="text-sm font-medium text-warning-700">
+                        Certificates
+                      </p>
+                      <p className="text-3xl font-bold text-warning-900 group-hover:animate-bounce-gentle">
+                        {stats.certificatesEarned}
+                      </p>
+                      <p className="text-xs text-warning-600">
+                        Professional level
+                      </p>
                     </div>
                     <Award className="w-8 h-8 text-warning-600 group-hover:animate-bounce-gentle" />
                   </div>
@@ -311,21 +425,34 @@ export default function Dashboard() {
                     <Activity className="w-5 h-5 mr-2 text-teal-600" />
                     Recent Activity
                   </CardTitle>
-                  <CardDescription>Your latest learning activities</CardDescription>
+                  <CardDescription>
+                    Your latest learning activities
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {stats.recentActivities.slice(0, 5).map((activity) => {
                       const IconComponent = getActivityIcon(activity.type);
                       return (
-                        <div key={activity.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div
+                          key={activity.id}
+                          className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                        >
                           <div className="flex items-center">
-                            <div className={`p-2 rounded-lg bg-white shadow-sm mr-3`}>
-                              <IconComponent className={`w-4 h-4 ${getActivityColor(activity.type)}`} />
+                            <div
+                              className={`p-2 rounded-lg bg-white shadow-sm mr-3`}
+                            >
+                              <IconComponent
+                                className={`w-4 h-4 ${getActivityColor(activity.type)}`}
+                              />
                             </div>
                             <div>
-                              <p className="font-medium text-gray-900">{activity.title}</p>
-                              <p className="text-sm text-gray-600">{formatDate(activity.date)}</p>
+                              <p className="font-medium text-gray-900">
+                                {activity.title}
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                {formatDate(activity.date)}
+                              </p>
                             </div>
                           </div>
                           {activity.score && (
@@ -346,15 +473,24 @@ export default function Dashboard() {
                     <Calendar className="w-5 h-5 mr-2 text-orange-600" />
                     Upcoming Deadlines
                   </CardTitle>
-                  <CardDescription>Stay on top of your commitments</CardDescription>
+                  <CardDescription>
+                    Stay on top of your commitments
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {stats.upcomingDeadlines.map((deadline) => (
-                      <div key={deadline.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div
+                        key={deadline.id}
+                        className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                      >
                         <div>
-                          <p className="font-medium text-gray-900">{deadline.title}</p>
-                          <p className="text-sm text-gray-600">{deadline.type} • {formatDate(deadline.date)}</p>
+                          <p className="font-medium text-gray-900">
+                            {deadline.title}
+                          </p>
+                          <p className="text-sm text-gray-600">
+                            {deadline.type} • {formatDate(deadline.date)}
+                          </p>
                         </div>
                         <Badge className={getPriorityColor(deadline.priority)}>
                           {deadline.priority}
@@ -372,39 +508,53 @@ export default function Dashboard() {
             <Card className="professional-card">
               <CardHeader>
                 <CardTitle>Weekly Learning Hours</CardTitle>
-                <CardDescription>Your daily learning time this week</CardDescription>
+                <CardDescription>
+                  Your daily learning time this week
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {stats.weeklyProgress.map((day, index) => (
                     <div key={index} className="flex items-center space-x-4">
-                      <div className="w-12 text-sm font-medium text-gray-600">{day.day}</div>
+                      <div className="w-12 text-sm font-medium text-gray-600">
+                        {day.day}
+                      </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-sm text-gray-600">{day.hours}h</span>
+                          <span className="text-sm text-gray-600">
+                            {day.hours}h
+                          </span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div 
+                          <div
                             className="bg-gradient-to-r from-teal-500 to-blue-500 h-2 rounded-full transition-all duration-500"
-                            style={{ width: `${(day.hours / maxWeeklyHours) * 100}%` }}
+                            style={{
+                              width: `${(day.hours / maxWeeklyHours) * 100}%`,
+                            }}
                           ></div>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="mt-6 grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <p className="text-2xl font-bold text-teal-600">{stats.thisWeekHours}h</p>
+                    <p className="text-2xl font-bold text-teal-600">
+                      {stats.thisWeekHours}h
+                    </p>
                     <p className="text-sm text-gray-600">This Week</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-blue-600">{(stats.thisWeekHours / 7).toFixed(1)}h</p>
+                    <p className="text-2xl font-bold text-blue-600">
+                      {(stats.thisWeekHours / 7).toFixed(1)}h
+                    </p>
                     <p className="text-sm text-gray-600">Daily Average</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-green-600">{stats.longestStreak}</p>
+                    <p className="text-2xl font-bold text-green-600">
+                      {stats.longestStreak}
+                    </p>
                     <p className="text-sm text-gray-600">Longest Streak</p>
                   </div>
                 </div>
@@ -422,10 +572,14 @@ export default function Dashboard() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-center">
-                    <p className="text-4xl font-bold text-green-600 mb-2">+15%</p>
+                    <p className="text-4xl font-bold text-green-600 mb-2">
+                      +15%
+                    </p>
                     <p className="text-gray-600">Improvement this month</p>
                     <div className="mt-4 p-4 bg-green-50 rounded-lg">
-                      <p className="text-sm text-green-800">You're performing better than 78% of learners!</p>
+                      <p className="text-sm text-green-800">
+                        You're performing better than 78% of learners!
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -441,15 +595,21 @@ export default function Dashboard() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Learning Hours</span>
-                      <span className="text-sm text-gray-600">{stats.thisWeekHours}/15h</span>
+                      <span className="text-sm font-medium">
+                        Learning Hours
+                      </span>
+                      <span className="text-sm text-gray-600">
+                        {stats.thisWeekHours}/15h
+                      </span>
                     </div>
-                    <Progress value={(stats.thisWeekHours / 15) * 100} className="h-3" />
+                    <Progress
+                      value={(stats.thisWeekHours / 15) * 100}
+                      className="h-3"
+                    />
                     <p className="text-sm text-gray-600">
-                      {15 - stats.thisWeekHours > 0 
-                        ? `${(15 - stats.thisWeekHours).toFixed(1)} hours left to reach your goal` 
-                        : "Goal achieved! Great work! 🎉"
-                      }
+                      {15 - stats.thisWeekHours > 0
+                        ? `${(15 - stats.thisWeekHours).toFixed(1)} hours left to reach your goal`
+                        : "Goal achieved! Great work! 🎉"}
                     </p>
                   </div>
                 </CardContent>
@@ -462,16 +622,22 @@ export default function Dashboard() {
             <Card className="professional-card">
               <CardHeader>
                 <CardTitle>Skill Development</CardTitle>
-                <CardDescription>Track your expertise across different technologies</CardDescription>
+                <CardDescription>
+                  Track your expertise across different technologies
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {stats.topSkills.map((skill, index) => (
                     <div key={index} className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="font-medium text-gray-900">{skill.skill}</span>
+                        <span className="font-medium text-gray-900">
+                          {skill.skill}
+                        </span>
                         <div className="flex items-center">
-                          <span className="text-sm text-gray-600 mr-2">Level {skill.level}</span>
+                          <span className="text-sm text-gray-600 mr-2">
+                            Level {skill.level}
+                          </span>
                           <Badge variant="outline">{skill.progress}%</Badge>
                         </div>
                       </div>
@@ -486,12 +652,17 @@ export default function Dashboard() {
             <Card className="professional-card">
               <CardHeader>
                 <CardTitle>Skills Mastered</CardTitle>
-                <CardDescription>Technologies and concepts you've learned</CardDescription>
+                <CardDescription>
+                  Technologies and concepts you've learned
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {stats.skillsLearned.map((skill, index) => (
-                    <Badge key={index} className="bg-teal-100 text-teal-800 px-3 py-1">
+                    <Badge
+                      key={index}
+                      className="bg-teal-100 text-teal-800 px-3 py-1"
+                    >
                       {skill}
                     </Badge>
                   ))}
@@ -505,24 +676,30 @@ export default function Dashboard() {
             <Card className="professional-card">
               <CardHeader>
                 <CardTitle>Achievement Badges</CardTitle>
-                <CardDescription>Celebrate your learning milestones</CardDescription>
+                <CardDescription>
+                  Celebrate your learning milestones
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {achievementBadges.map((badge, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className={`p-6 rounded-xl border-2 text-center transition-all duration-300 ${
-                        badge.earned 
-                          ? 'bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-200 shadow-lg' 
-                          : 'bg-gray-50 border-gray-200 opacity-60'
+                        badge.earned
+                          ? "bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-200 shadow-lg"
+                          : "bg-gray-50 border-gray-200 opacity-60"
                       }`}
                     >
                       <div className="text-4xl mb-3">{badge.icon}</div>
-                      <h3 className={`font-semibold mb-2 ${badge.earned ? 'text-gray-900' : 'text-gray-500'}`}>
+                      <h3
+                        className={`font-semibold mb-2 ${badge.earned ? "text-gray-900" : "text-gray-500"}`}
+                      >
                         {badge.name}
                       </h3>
-                      <p className={`text-sm ${badge.earned ? 'text-gray-600' : 'text-gray-400'}`}>
+                      <p
+                        className={`text-sm ${badge.earned ? "text-gray-600" : "text-gray-400"}`}
+                      >
                         {badge.description}
                       </p>
                       {badge.earned && (
@@ -538,25 +715,37 @@ export default function Dashboard() {
             <Card className="professional-card">
               <CardHeader>
                 <CardTitle>Certificates Earned</CardTitle>
-                <CardDescription>Your professional certifications</CardDescription>
+                <CardDescription>
+                  Your professional certifications
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {Array.from({ length: stats.certificatesEarned }, (_, index) => (
-                    <div key={index} className="flex items-center justify-between p-4 bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg border border-teal-200">
-                      <div className="flex items-center">
-                        <Award className="w-8 h-8 text-teal-600 mr-3" />
-                        <div>
-                          <p className="font-medium text-gray-900">Professional Certificate {index + 1}</p>
-                          <p className="text-sm text-gray-600">Earned on Jan {20 + index}, 2025</p>
+                  {Array.from(
+                    { length: stats.certificatesEarned },
+                    (_, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between p-4 bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg border border-teal-200"
+                      >
+                        <div className="flex items-center">
+                          <Award className="w-8 h-8 text-teal-600 mr-3" />
+                          <div>
+                            <p className="font-medium text-gray-900">
+                              Professional Certificate {index + 1}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              Earned on Jan {20 + index}, 2025
+                            </p>
+                          </div>
                         </div>
+                        <Button variant="outline" size="sm">
+                          <Eye className="w-4 h-4 mr-2" />
+                          View
+                        </Button>
                       </div>
-                      <Button variant="outline" size="sm">
-                        <Eye className="w-4 h-4 mr-2" />
-                        View
-                      </Button>
-                    </div>
-                  ))}
+                    ),
+                  )}
                 </div>
               </CardContent>
             </Card>

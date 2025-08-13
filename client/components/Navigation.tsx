@@ -1,10 +1,18 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
-  BookOpen, Brain, BarChart3, Trophy, Bell, LogOut, User, Menu, X
-} from 'lucide-react';
+  BookOpen,
+  Brain,
+  BarChart3,
+  Trophy,
+  Bell,
+  LogOut,
+  User,
+  Menu,
+  X,
+} from "lucide-react";
 
 interface NavigationProps {
   isAuthenticated: boolean;
@@ -19,21 +27,21 @@ export default function Navigation({
   currentUser,
   onLogout,
   onShowAuth,
-  onShowNotifications
+  onShowNotifications,
 }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   const navigationItems = [
-    { name: 'Workshops', path: '/', icon: BookOpen },
-    { name: 'Quiz Platform', path: '/quiz', icon: Brain },
-    { name: 'Dashboard', path: '/dashboard', icon: BarChart3 },
-    { name: 'Profile', path: '/profile', icon: User },
+    { name: "Workshops", path: "/", icon: BookOpen },
+    { name: "Quiz Platform", path: "/quiz", icon: Brain },
+    { name: "Dashboard", path: "/dashboard", icon: BarChart3 },
+    { name: "Profile", path: "/profile", icon: User },
   ];
 
   const isActivePath = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
+    if (path === "/") {
+      return location.pathname === "/";
     }
     return location.pathname.startsWith(path);
   };
@@ -54,8 +62,12 @@ export default function Navigation({
               </div>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-neutral-900 leading-tight">DESOC Workshop Hub</h1>
-              <p className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent font-medium">Unlock the Universe of Knowledge</p>
+              <h1 className="text-xl font-bold text-neutral-900 leading-tight">
+                DESOC Workshop Hub
+              </h1>
+              <p className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent font-medium">
+                Unlock the Universe of Knowledge
+              </p>
             </div>
           </Link>
 
@@ -69,8 +81,8 @@ export default function Navigation({
                   to={item.path}
                   className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActivePath(item.path)
-                      ? 'bg-gradient-to-r from-brand to-brand-600 text-white shadow-lg'
-                      : 'text-neutral-700 hover:text-brand hover:bg-brand/5'
+                      ? "bg-gradient-to-r from-brand to-brand-600 text-white shadow-lg"
+                      : "text-neutral-700 hover:text-brand hover:bg-brand/5"
                   }`}
                 >
                   <IconComponent className="w-4 h-4 mr-2" />
@@ -89,7 +101,11 @@ export default function Navigation({
               className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </Button>
 
             {isAuthenticated ? (
@@ -112,7 +128,9 @@ export default function Navigation({
                       {currentUser?.slice(-2).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="text-sm font-medium">User {currentUser?.slice(-4)}</span>
+                  <span className="text-sm font-medium">
+                    User {currentUser?.slice(-4)}
+                  </span>
                 </div>
                 <Button variant="outline" size="sm" onClick={onLogout}>
                   <LogOut className="w-4 h-4 mr-2" />
@@ -120,7 +138,10 @@ export default function Navigation({
                 </Button>
               </>
             ) : (
-              <Button onClick={onShowAuth} className="bg-brand hover:bg-brand/90">
+              <Button
+                onClick={onShowAuth}
+                className="bg-brand hover:bg-brand/90"
+              >
                 Sign In
               </Button>
             )}
@@ -140,8 +161,8 @@ export default function Navigation({
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                       isActivePath(item.path)
-                        ? 'bg-gradient-to-r from-brand to-brand-600 text-white'
-                        : 'text-neutral-700 hover:text-brand hover:bg-brand/5'
+                        ? "bg-gradient-to-r from-brand to-brand-600 text-white"
+                        : "text-neutral-700 hover:text-brand hover:bg-brand/5"
                     }`}
                   >
                     <IconComponent className="w-4 h-4 mr-3" />
@@ -149,7 +170,7 @@ export default function Navigation({
                   </Link>
                 );
               })}
-              
+
               {isAuthenticated && (
                 <div className="border-t border-gray-200 pt-2 mt-2">
                   <Button
