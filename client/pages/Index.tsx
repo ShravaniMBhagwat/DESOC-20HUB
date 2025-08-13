@@ -757,131 +757,6 @@ export default function Index() {
           </MotionWrapper>
         </section>
 
-        {/* Contact Us Section */}
-        <section className="mb-16">
-          <MotionWrapper animation="slide-up" delay={200} duration="0.8s">
-            <Card className="professional-card bg-gradient-to-r from-gray-50 to-blue-50 border-brand/20 hover:shadow-xl transition-shadow duration-500">
-              <CardContent className="p-8">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                    Contact Us
-                  </h2>
-                  <p className="text-lg text-gray-600">
-                    Get in touch with our team for any questions or support
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {/* Head Contact */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-brand to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <User className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      Dr. Priya Sharma
-                    </h3>
-                    <p className="text-gray-600 mb-2">Head of Education</p>
-                    <p className="text-sm text-gray-600 mb-4">
-                      Leading educational innovation and curriculum development
-                    </p>
-                    <div className="space-y-2">
-                      <p className="text-sm">
-                        <span className="font-medium">Email:</span>
-                        <a
-                          href="mailto:priya.sharma@desoc.edu"
-                          className="text-brand hover:underline ml-1"
-                        >
-                          priya.sharma@desoc.edu
-                        </a>
-                      </p>
-                      <p className="text-sm">
-                        <span className="font-medium">Phone:</span>
-                        <a
-                          href="tel:+1-555-0123"
-                          className="text-brand hover:underline ml-1"
-                        >
-                          +1 (555) 012-3456
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Help & Support */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <MessageSquare className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      Help & Support
-                    </h3>
-                    <p className="text-gray-600 mb-4">
-                      Technical support and general inquiries
-                    </p>
-                    <div className="space-y-2">
-                      <p className="text-sm">
-                        <span className="font-medium">Support Email:</span>
-                        <a
-                          href="mailto:help@desoc.edu"
-                          className="text-brand hover:underline ml-1"
-                        >
-                          help@desoc.edu
-                        </a>
-                      </p>
-                      <p className="text-sm">
-                        <span className="font-medium">Response Time:</span>
-                        <span className="text-gray-600 ml-1">
-                          Within 24 hours
-                        </span>
-                      </p>
-                      <Button
-                        className="mt-3 bg-green-600 hover:bg-green-700"
-                        size="sm"
-                      >
-                        Submit Ticket
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* General Contact */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <BookOpen className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      DESOC Hub
-                    </h3>
-                    <p className="text-gray-600 mb-4">
-                      General information and partnerships
-                    </p>
-                    <div className="space-y-2">
-                      <p className="text-sm">
-                        <span className="font-medium">Main Office:</span>
-                        <span className="text-gray-600 ml-1">
-                          San Francisco, CA
-                        </span>
-                      </p>
-                      <p className="text-sm">
-                        <span className="font-medium">General Email:</span>
-                        <a
-                          href="mailto:info@desoc.edu"
-                          className="text-brand hover:underline ml-1"
-                        >
-                          info@desoc.edu
-                        </a>
-                      </p>
-                      <p className="text-sm">
-                        <span className="font-medium">Business Hours:</span>
-                        <span className="text-gray-600 ml-1">
-                          Mon-Fri 9AM-6PM PST
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </MotionWrapper>
-        </section>
 
         {/* Search and Filters */}
         <SearchAndFilters
@@ -1096,7 +971,7 @@ export default function Index() {
                       confirmPassword: e.target.value,
                     })
                   }
-                  placeholder="••••••••"
+                  placeholder="•••••••��"
                   required
                 />
               </div>
