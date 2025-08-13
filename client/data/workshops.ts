@@ -154,7 +154,7 @@ export const workshopsData: Workshop[] = [
     level: 'Intermediate',
     tags: ['Robotics', 'Space', 'Engineering', 'Autonomous Systems'],
     category: 'Robotics',
-    price: 149,
+    price: 0,
     rating: 4.7,
     reviewCount: 64,
     reviews: [],
