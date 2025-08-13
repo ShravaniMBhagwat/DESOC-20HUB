@@ -10,6 +10,8 @@ import { Users, Calendar, Clock, Cpu, Orbit, Zap } from 'lucide-react';
 import { SciFiHeader } from '@/components/SciFiHeader';
 import { WorkshopCard } from '@/components/WorkshopCard';
 import { LoadingScreen } from '@/components/LoadingScreen';
+import { SciFiFooter } from '@/components/SciFiFooter';
+import { ParticleBackground } from '@/components/ParticleBackground';
 
 interface Workshop {
   id: string;
