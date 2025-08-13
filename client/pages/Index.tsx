@@ -428,8 +428,8 @@ export default function Index() {
                   Expert Workshops
                 </div>
               </div>
-              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-glow-success transition-all duration-500 transform hover:scale-105 hover:-rotate-1 cursor-pointer">
-                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-success to-success-600 mb-3 group-hover:scale-110 group-hover:animate-bounce-gentle transition-transform duration-300">
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-neutral-200/60 hover:shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-105 hover:-rotate-1 cursor-pointer">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-brand mb-3 group-hover:scale-110 group-hover:animate-bounce-gentle transition-transform duration-300">
                   {workshops.reduce((acc, w) => acc + w.capacity, 0)}
                 </div>
                 <div className="text-sm font-semibold text-neutral-600 group-hover:text-success transition-colors duration-300">
