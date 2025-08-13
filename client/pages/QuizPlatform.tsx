@@ -457,8 +457,8 @@ export default function QuizPlatform() {
                               onClick={() => selectAnswer(index)}
                               className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-200 ${
                                 userAnswers[currentQuestionIndex] === index
-                                  ? 'border-teal-500 bg-teal-50 text-teal-900'
-                                  : 'border-gray-200 hover:border-teal-300 hover:bg-teal-50/50'
+                                  ? 'border-brand bg-brand-50 text-brand-900'
+                                  : 'border-neutral-200 hover:border-brand hover:bg-brand-50/50'
                               }`}
                             >
                               <span className="font-medium">{String.fromCharCode(65 + index)}.</span> {option}
