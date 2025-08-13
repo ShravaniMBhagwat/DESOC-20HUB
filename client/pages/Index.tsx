@@ -330,7 +330,7 @@ export default function Index() {
           <div className="relative py-16 px-8">
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand/10 to-purple-600/10 rounded-full mb-6">
               <Star className="w-4 h-4 text-brand mr-2" />
-              <span className="text-sm font-medium text-gray-700">Trusted by 10,000+ professionals worldwide</span>
+              <span className="text-sm font-medium text-gray-700">Trusted by 50,000+ professionals worldwide</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Unlock the
