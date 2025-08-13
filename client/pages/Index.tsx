@@ -8,10 +8,10 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Users, Calendar, Clock, Star, Award, TrendingUp, BookOpen, 
+import {
+  Users, Calendar, Clock, Star, Award, TrendingUp, BookOpen,
   Play, CheckCircle, Bell, Search, Filter, Grid, List, Menu,
-  User, Settings, LogOut, Heart
+  User, Settings, LogOut, Heart, MessageSquare
 } from 'lucide-react';
 import { SearchAndFilters } from '@/components/SearchAndFilters';
 import { EnhancedWorkshopCard } from '@/components/EnhancedWorkshopCard';
