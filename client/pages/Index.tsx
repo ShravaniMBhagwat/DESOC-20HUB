@@ -566,7 +566,9 @@ export default function Index() {
 
         {/* DESOC Events Section */}
         <section className="mb-16">
-          <DesocEvents />
+          <MotionWrapper animation="slide-up" delay={0} duration="0.8s">
+            <DesocEvents />
+          </MotionWrapper>
         </section>
 
         {/* Contact Us Section */}
