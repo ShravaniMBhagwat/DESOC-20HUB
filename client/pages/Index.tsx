@@ -40,6 +40,7 @@ export default function Index() {
   const [authError, setAuthError] = useState('');
   const [notification, setNotification] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [showNotifications, setShowNotifications] = useState(false);
 
   // Search and filter state
   const [searchTerm, setSearchTerm] = useState('');
