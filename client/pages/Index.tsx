@@ -519,7 +519,7 @@ export default function Index() {
         {/* HackerRank Series - Special Course */}
         <section className="mb-16">
           <MotionWrapper animation="scale-in" delay={0} duration="0.8s">
-            <div className="relative bg-gradient-to-r from-blue-900 to-brand rounded-3xl p-8 overflow-hidden hover:shadow-2xl transition-shadow duration-500">
+            <div className="relative bg-gradient-to-r from-success to-brand rounded-3xl p-8 overflow-hidden hover:shadow-2xl transition-shadow duration-500">
               <div className="absolute inset-0 bg-black/10"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
               <div className="relative z-10">
