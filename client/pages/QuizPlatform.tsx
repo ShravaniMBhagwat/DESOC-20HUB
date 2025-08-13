@@ -269,6 +269,13 @@ export default function QuizPlatform() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20">
+      <Navigation
+        isAuthenticated={isAuthenticated}
+        currentUser={currentUser}
+        onLogout={handleLogout}
+        onShowAuth={() => {}}
+        onShowNotifications={() => {}}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="text-center mb-12">
