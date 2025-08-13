@@ -454,6 +454,132 @@ export default function Index() {
           </div>
         </section>
 
+        {/* Official Announcements */}
+        <section className="mb-16">
+          <MotionWrapper animation="slide-up" delay={0} duration="0.8s">
+            <div className="text-center mb-10">
+              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent mb-4 animate-gradient-shift bg-size-200">
+                📢 Official Announcements
+              </h3>
+              <p className="text-lg font-medium text-neutral-600">
+                Stay updated with the latest news and opportunities from DESOC
+              </p>
+            </div>
+          </MotionWrapper>
+
+          <div className="max-w-4xl mx-auto">
+            <StaggeredList staggerDelay={200} className="space-y-6">
+              {/* DESOC Recruitment Announcement */}
+              <div className="relative bg-gradient-to-r from-brand/10 via-accent/5 to-success/10 rounded-2xl p-8 border-2 border-brand/20 hover:border-brand/40 transition-all duration-300 hover:shadow-xl overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand/20 to-accent/20 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-success/20 to-brand/20 rounded-full blur-xl"></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-gradient-to-r from-brand to-accent rounded-xl flex items-center justify-center shadow-lg">
+                        <span className="text-2xl">🚀</span>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-neutral-900">DESOC Team Recruitment 2025</h4>
+                        <p className="text-sm text-neutral-600">Posted on January 15, 2025</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-red-500 text-white animate-pulse">New</Badge>
+                      <Badge className="bg-success text-white">Open</Badge>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <p className="text-neutral-700 leading-relaxed mb-4">
+                      🎯 <strong>Join the DESOC Core Team!</strong> We're looking for passionate individuals to help shape the future of developer education and community building.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                      <div className="bg-white/70 rounded-lg p-4 border border-brand/10">
+                        <h5 className="font-semibold text-brand mb-2">🔥 Open Positions:</h5>
+                        <ul className="text-sm text-neutral-700 space-y-1">
+                          <li>• Technical Content Creator</li>
+                          <li>• Community Manager</li>
+                          <li>• Workshop Coordinator</li>
+                          <li>• Social Media Specialist</li>
+                        </ul>
+                      </div>
+                      <div className="bg-white/70 rounded-lg p-4 border border-accent/10">
+                        <h5 className="font-semibold text-accent mb-2">💎 What We Offer:</h5>
+                        <ul className="text-sm text-neutral-700 space-y-1">
+                          <li>• Flexible work hours</li>
+                          <li>• Skill development opportunities</li>
+                          <li>• Networking with industry experts</li>
+                          <li>• Certificate of contribution</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-success/10 to-emerald-500/10 rounded-lg p-4 border border-success/20 mb-4">
+                      <p className="text-sm font-medium text-success-700">
+                        📅 <strong>Application Deadline:</strong> February 15, 2025<br/>
+                        📧 <strong>Apply at:</strong> recruitment@desoc.edu<br/>
+                        ⏰ <strong>Interview Process:</strong> Rolling basis - Apply early!
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3 justify-between items-center">
+                    <div className="flex gap-3">
+                      <Button className="bg-gradient-to-r from-brand to-brand-600 hover:from-brand/90 hover:to-brand-600/90 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                        Apply Now
+                      </Button>
+                      <Button variant="outline" className="border-brand text-brand hover:bg-brand/5">
+                        Learn More
+                      </Button>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-neutral-600">
+                      <span>📊 45 applications received</span>
+                      <span>•</span>
+                      <span>⭐ 4.9/5 team satisfaction</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Quick Announcements */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border border-neutral-200/60 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 bg-gradient-to-r from-success to-emerald-500 rounded-lg flex items-center justify-center">
+                      <span className="text-sm">📚</span>
+                    </div>
+                    <h5 className="font-semibold text-neutral-900">New Course Launch</h5>
+                  </div>
+                  <p className="text-sm text-neutral-600 mb-3">
+                    Advanced AI & Machine Learning workshop series launching February 2025.
+                  </p>
+                  <Button size="sm" variant="outline" className="text-success border-success hover:bg-success/5">
+                    Register Interest
+                  </Button>
+                </div>
+
+                <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 border border-neutral-200/60 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 bg-gradient-to-r from-accent to-pink-500 rounded-lg flex items-center justify-center">
+                      <span className="text-sm">🏆</span>
+                    </div>
+                    <h5 className="font-semibold text-neutral-900">Hackathon Winner</h5>
+                  </div>
+                  <p className="text-sm text-neutral-600 mb-3">
+                    Congratulations to Team CodeCrafters for winning the DESOC Winter Hackathon 2025!
+                  </p>
+                  <Button size="sm" variant="outline" className="text-accent border-accent hover:bg-accent/5">
+                    View Results
+                  </Button>
+                </div>
+              </div>
+            </StaggeredList>
+          </div>
+        </section>
+
         {/* Innovation Partners */}
         <section className="mb-16">
           <MotionWrapper animation="slide-up" delay={0}>
