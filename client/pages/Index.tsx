@@ -291,13 +291,15 @@ export default function Index() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      <SciFiHeader 
-        isAuthenticated={isAuthenticated}
-        currentUser={currentUser}
-        onConnect={() => setShowAuth(true)}
-        onLogout={handleLogout}
-      />
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative">
+      <ParticleBackground />
+      <div className="relative z-10">
+        <SciFiHeader
+          isAuthenticated={isAuthenticated}
+          currentUser={currentUser}
+          onConnect={() => setShowAuth(true)}
+          onLogout={handleLogout}
+        />
 
       {/* Notification */}
       {notification && (
@@ -407,6 +409,8 @@ export default function Index() {
         </section>
       </main>
 
+      <SciFiFooter />
+
       {/* Authentication Dialog */}
       <Dialog open={showAuth} onOpenChange={setShowAuth}>
         <DialogContent className="glass border-neon-blue-500/50 text-slate-100">
@@ -492,6 +496,7 @@ export default function Index() {
           </form>
         </DialogContent>
       </Dialog>
+      </div>
     </div>
   );
 }
