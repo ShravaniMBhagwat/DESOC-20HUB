@@ -573,7 +573,8 @@ export default function Index() {
 
         {/* Contact Us Section */}
         <section className="mb-16">
-          <Card className="professional-card bg-gradient-to-r from-gray-50 to-blue-50 border-brand/20">
+          <MotionWrapper animation="slide-up" delay={200} duration="0.8s">
+            <Card className="professional-card bg-gradient-to-r from-gray-50 to-blue-50 border-brand/20 hover:shadow-xl transition-shadow duration-500">
             <CardContent className="p-8">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
@@ -655,7 +656,8 @@ export default function Index() {
                 </div>
               </div>
             </CardContent>
-          </Card>
+            </Card>
+          </MotionWrapper>
         </section>
 
         {/* Search and Filters */}
