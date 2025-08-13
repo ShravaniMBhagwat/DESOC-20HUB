@@ -262,65 +262,14 @@ export default function Index() {
         <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-blue-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
       </div>
-      {/* Header */}
-      <header className="bg-white/95 backdrop-blur-lg border-b border-gray-200/60 sticky top-0 z-50 shadow-lg relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand/5 via-transparent to-purple-600/5"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center justify-between h-18 py-2">
-            {/* Logo */}
-            <div className="flex items-center space-x-4">
-              <div className="relative">
-                <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand to-blue-600 rounded-xl shadow-lg">
-                  <BookOpen className="w-7 h-7 text-white" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <span className="text-xs font-bold text-gray-900">D</span>
-                </div>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900 leading-tight">DESOC Workshop Hub</h1>
-                <p className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-600 font-medium">Unlock the Universe of Knowledge</p>
-              </div>
-            </div>
-            
-            {/* User Actions */}
-            <div className="flex items-center space-x-4">
-              {isAuthenticated ? (
-                <>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setShowNotifications(true)}
-                    className="relative"
-                  >
-                    <Bell className="w-4 h-4 mr-2" />
-                    Notifications
-                    <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">
-                      3
-                    </span>
-                  </Button>
-                  <div className="flex items-center space-x-2">
-                    <Avatar className="w-8 h-8">
-                      <AvatarFallback>
-                        {currentUser?.slice(-2).toUpperCase()}
-                      </AvatarFallback>
-                    </Avatar>
-                    <span className="text-sm font-medium">User {currentUser?.slice(-4)}</span>
-                  </div>
-                  <Button variant="outline" size="sm" onClick={handleLogout}>
-                    <LogOut className="w-4 h-4 mr-2" />
-                    Sign Out
-                  </Button>
-                </>
-              ) : (
-                <Button onClick={() => setShowAuth(true)} className="bg-brand hover:bg-brand/90">
-                  Sign In
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
+      {/* Navigation */}
+      <Navigation
+        isAuthenticated={isAuthenticated}
+        currentUser={currentUser}
+        onLogout={handleLogout}
+        onShowAuth={() => setShowAuth(true)}
+        onShowNotifications={() => setShowNotifications(true)}
+      />
 
       {/* Notification */}
       {notification && (
