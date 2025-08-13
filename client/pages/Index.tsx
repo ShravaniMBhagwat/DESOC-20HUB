@@ -993,16 +993,16 @@ export default function Index() {
                 {/* General Contact */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                       <BookOpen className="w-10 h-10 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2">DESOC Hub</h3>
-                    <p className="text-green-200 font-medium mb-2">Main Office</p>
+                    <p className="text-blue-200 font-medium mb-2">Main Office</p>
                     <p className="text-white/80 text-sm mb-6">General information and partnerships</p>
                     <div className="space-y-3">
                       <div className="flex items-center justify-center">
-                        <MessageSquare className="w-4 h-4 mr-2 text-green-200" />
-                        <a href="mailto:info@desoc.edu" className="text-white hover:text-green-200 transition-colors">
+                        <MessageSquare className="w-4 h-4 mr-2 text-blue-200" />
+                        <a href="mailto:info@desoc.edu" className="text-white hover:text-blue-200 transition-colors">
                           info@desoc.edu
                         </a>
                       </div>
