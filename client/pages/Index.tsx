@@ -375,16 +375,285 @@ export default function Index() {
         {/* Trust Indicators */}
         <section className="mb-12">
           <div className="text-center mb-8">
-            <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Trusted by leading organizations</p>
+            <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Trusted by 50,000+ professionals worldwide from leading organizations</p>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Google</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Microsoft</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Meta</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Amazon</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Apple</div>
-            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Netflix</div>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Google</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Microsoft</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Meta</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Amazon</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Apple</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Netflix</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">Tesla</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold hover:shadow-lg transition-all duration-300">SpaceX</div>
           </div>
+        </section>
+
+        {/* HackerRank Series - Special Course */}
+        <section className="mb-16">
+          <div className="relative bg-gradient-to-r from-green-600 to-blue-600 rounded-3xl p-8 overflow-hidden">
+            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div className="text-white">
+                  <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full mb-4">
+                    <Award className="w-4 h-4 mr-2" />
+                    <span className="text-sm font-medium">Special Course Series</span>
+                  </div>
+                  <h2 className="text-4xl font-bold mb-4">HackerRank Mastery Series</h2>
+                  <p className="text-xl mb-6 text-white/90">
+                    Master coding interviews and competitive programming with our comprehensive HackerRank-style challenges and training modules.
+                  </p>
+                  <div className="flex flex-wrap gap-4 mb-6">
+                    <Badge className="bg-white/20 text-white border-white/30">200+ Problems</Badge>
+                    <Badge className="bg-white/20 text-white border-white/30">Live Coding Sessions</Badge>
+                    <Badge className="bg-white/20 text-white border-white/30">Interview Prep</Badge>
+                    <Badge className="bg-white/20 text-white border-white/30">Real-time Judging</Badge>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button className="bg-white text-green-600 hover:bg-white/90 font-semibold px-6 py-3">
+                      Start Coding Challenges
+                    </Button>
+                    <Button variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-6 py-3">
+                      View Curriculum
+                    </Button>
+                  </div>
+                </div>
+                <div className="relative">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-white font-semibold">Featured Challenges</h3>
+                      <Badge className="bg-yellow-400 text-black">Hot 🔥</Badge>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
+                        <div>
+                          <p className="text-white font-medium">Two Sum Problem</p>
+                          <p className="text-white/70 text-sm">Array, Hash Table</p>
+                        </div>
+                        <Badge className="bg-green-500 text-white">Easy</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
+                        <div>
+                          <p className="text-white font-medium">Binary Tree Traversal</p>
+                          <p className="text-white/70 text-sm">Tree, Recursion</p>
+                        </div>
+                        <Badge className="bg-yellow-500 text-white">Medium</Badge>
+                      </div>
+                      <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
+                        <div>
+                          <p className="text-white font-medium">Graph Algorithms</p>
+                          <p className="text-white/70 text-sm">Graph, DFS, BFS</p>
+                        </div>
+                        <Badge className="bg-red-500 text-white">Hard</Badge>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Upcoming Events */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Upcoming Events & Workshops</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Join our live events, webinars, and special workshops featuring industry experts and thought leaders.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Live Workshop Event */}
+            <Card className="professional-card border-l-4 border-l-brand relative overflow-hidden">
+              <div className="absolute top-4 right-4">
+                <Badge className="bg-red-500 text-white animate-pulse">🔴 LIVE</Badge>
+              </div>
+              <CardHeader>
+                <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Jan 25, 2025</span>
+                  <Clock className="w-4 h-4 ml-2" />
+                  <span>2:00 PM EST</span>
+                </div>
+                <CardTitle className="text-xl">AI in Production: Best Practices</CardTitle>
+                <CardDescription>
+                  Live workshop on deploying AI models in production environments with real-world case studies.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="w-8 h-8">
+                      <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" />
+                      <AvatarFallback>DR</AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm font-medium">Dr. Raj Patel</span>
+                  </div>
+                  <Button size="sm" className="bg-brand">
+                    Join Live
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Webinar Event */}
+            <Card className="professional-card border-l-4 border-l-purple-500">
+              <CardHeader>
+                <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Jan 30, 2025</span>
+                  <Clock className="w-4 h-4 ml-2" />
+                  <span>1:00 PM EST</span>
+                </div>
+                <CardTitle className="text-xl">Future of Quantum Computing</CardTitle>
+                <CardDescription>
+                  Expert panel discussion on quantum computing breakthroughs and their impact on various industries.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="w-8 h-8">
+                      <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b2e23e84?w=150&h=150&fit=crop&crop=face" />
+                      <AvatarFallback>SC</AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm font-medium">Dr. Sarah Chen</span>
+                  </div>
+                  <Button size="sm" variant="outline">
+                    Register Free
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Special Masterclass */}
+            <Card className="professional-card border-l-4 border-l-green-500">
+              <div className="absolute top-4 right-4">
+                <Badge className="bg-yellow-400 text-black">Premium</Badge>
+              </div>
+              <CardHeader>
+                <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Feb 5, 2025</span>
+                  <Clock className="w-4 h-4 ml-2" />
+                  <span>3:00 PM EST</span>
+                </div>
+                <CardTitle className="text-xl">Blockchain Masterclass</CardTitle>
+                <CardDescription>
+                  Comprehensive masterclass on building decentralized applications with hands-on coding sessions.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="w-8 h-8">
+                      <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" />
+                      <AvatarFallback>MW</AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm font-medium">Marcus Webb</span>
+                  </div>
+                  <Button size="sm" className="bg-green-600 hover:bg-green-700">
+                    Reserve Spot
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-8">
+            <Button variant="outline" className="px-8 py-3">
+              View All Events
+            </Button>
+          </div>
+        </section>
+
+        {/* Contact Us Section */}
+        <section className="mb-16">
+          <Card className="professional-card bg-gradient-to-r from-gray-50 to-blue-50 border-brand/20">
+            <CardContent className="p-8">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                <p className="text-lg text-gray-600">Get in touch with our team for any questions or support</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Head Contact */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-brand to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <User className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Dr. Priya Sharma</h3>
+                  <p className="text-gray-600 mb-2">Head of Education</p>
+                  <p className="text-sm text-gray-600 mb-4">Leading educational innovation and curriculum development</p>
+                  <div className="space-y-2">
+                    <p className="text-sm">
+                      <span className="font-medium">Email:</span>
+                      <a href="mailto:priya.sharma@desoc.edu" className="text-brand hover:underline ml-1">
+                        priya.sharma@desoc.edu
+                      </a>
+                    </p>
+                    <p className="text-sm">
+                      <span className="font-medium">Phone:</span>
+                      <a href="tel:+1-555-0123" className="text-brand hover:underline ml-1">
+                        +1 (555) 012-3456
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Help & Support */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <MessageSquare className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Help & Support</h3>
+                  <p className="text-gray-600 mb-4">Technical support and general inquiries</p>
+                  <div className="space-y-2">
+                    <p className="text-sm">
+                      <span className="font-medium">Support Email:</span>
+                      <a href="mailto:help@desoc.edu" className="text-brand hover:underline ml-1">
+                        help@desoc.edu
+                      </a>
+                    </p>
+                    <p className="text-sm">
+                      <span className="font-medium">Response Time:</span>
+                      <span className="text-gray-600 ml-1">Within 24 hours</span>
+                    </p>
+                    <Button className="mt-3 bg-green-600 hover:bg-green-700" size="sm">
+                      Submit Ticket
+                    </Button>
+                  </div>
+                </div>
+
+                {/* General Contact */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BookOpen className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">DESOC Hub</h3>
+                  <p className="text-gray-600 mb-4">General information and partnerships</p>
+                  <div className="space-y-2">
+                    <p className="text-sm">
+                      <span className="font-medium">Main Office:</span>
+                      <span className="text-gray-600 ml-1">San Francisco, CA</span>
+                    </p>
+                    <p className="text-sm">
+                      <span className="font-medium">General Email:</span>
+                      <a href="mailto:info@desoc.edu" className="text-brand hover:underline ml-1">
+                        info@desoc.edu
+                      </a>
+                    </p>
+                    <p className="text-sm">
+                      <span className="font-medium">Business Hours:</span>
+                      <span className="text-gray-600 ml-1">Mon-Fri 9AM-6PM PST</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </section>
 
         {/* Search and Filters */}
