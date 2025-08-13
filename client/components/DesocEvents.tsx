@@ -551,7 +551,7 @@ export default function DesocEvents() {
                   
                   <Button 
                     onClick={() => setSelectedEvent(event)}
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                    className="w-full bg-gradient-to-r from-brand to-accent hover:from-brand-700 hover:to-accent-700"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
