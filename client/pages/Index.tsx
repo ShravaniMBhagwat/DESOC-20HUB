@@ -16,6 +16,8 @@ import {
 import { SearchAndFilters } from '@/components/SearchAndFilters';
 import { EnhancedWorkshopCard } from '@/components/EnhancedWorkshopCard';
 import { NotificationSystem } from '@/components/NotificationSystem';
+import Navigation from '@/components/Navigation';
+import DesocEvents from '@/components/DesocEvents';
 import { workshopsData, Workshop } from '@/data/workshops';
 
 interface UserRegistration {
