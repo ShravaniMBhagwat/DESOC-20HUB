@@ -430,7 +430,7 @@ export default function QuizPlatform() {
                       </CardDescription>
                     </div>
                     <div className="text-right">
-                      <div className="flex items-center text-lg font-bold text-teal-600">
+                      <div className="flex items-center text-lg font-bold text-brand">
                         <Clock className="w-5 h-5 mr-2" />
                         {formatTime(timeRemaining)}
                       </div>
