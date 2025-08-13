@@ -372,10 +372,10 @@ export default function Index() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent rounded-3xl"></div>
           <div className="relative py-20 px-8">
             <MotionWrapper animation="fade-in" delay={200}>
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-accent/10 rounded-full mb-8 border border-brand/20 shadow-lg backdrop-blur-sm hover:scale-105 transition-transform duration-300">
-                <Star className="w-5 h-5 text-brand mr-2 animate-pulse" />
-                <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">
-                  Premium Learning Platform
+              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-success/15 to-emerald-500/10 rounded-full mb-8 border border-success/20 shadow-lg backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+                <Star className="w-5 h-5 text-success mr-2 animate-pulse" />
+                <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-success to-emerald-600">
+                  100% FREE Learning Platform
                 </span>
               </div>
             </MotionWrapper>
