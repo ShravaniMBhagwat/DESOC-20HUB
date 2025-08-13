@@ -351,33 +351,33 @@ export default function Index() {
             </div>
           </MotionWrapper>
           <div className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent z-10 pointer-events-none"></div>
-            <div className="flex flex-wrap justify-center items-center gap-6">
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 cursor-pointer">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent z-10 pointer-events-none animate-shimmer"></div>
+            <StaggeredList staggerDelay={80} className="flex flex-wrap justify-center items-center gap-6">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-110 hover:rotate-1 transition-all duration-500 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand group-hover:to-brand-600 transition-all duration-300">Google</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-success-50 hover:to-success-100 cursor-pointer">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-110 hover:-rotate-1 transition-all duration-500 hover:bg-gradient-to-r hover:from-success-50 hover:to-success-100 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-success group-hover:to-success-600 transition-all duration-300">Microsoft</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-accent-50 hover:to-accent-100 cursor-pointer">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-110 hover:rotate-1 transition-all duration-500 hover:bg-gradient-to-r hover:from-accent-50 hover:to-accent-100 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-accent-600 transition-all duration-300">Meta</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-warning-50 hover:to-warning-100 cursor-pointer">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-110 hover:-rotate-1 transition-all duration-500 hover:bg-gradient-to-r hover:from-warning-50 hover:to-warning-100 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-warning group-hover:to-warning-600 transition-all duration-300">Amazon</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-neutral-50 hover:to-neutral-100 cursor-pointer">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-110 hover:rotate-1 transition-all duration-500 hover:bg-gradient-to-r hover:from-neutral-50 hover:to-neutral-100 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-neutral-600 group-hover:to-neutral-700 transition-all duration-300">Apple</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-accent-50 hover:to-red-50 cursor-pointer">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-110 hover:-rotate-1 transition-all duration-500 hover:bg-gradient-to-r hover:from-accent-50 hover:to-red-50 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-red-600 transition-all duration-300">Netflix</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-brand-50 hover:to-cyan-50 cursor-pointer">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-110 hover:rotate-1 transition-all duration-500 hover:bg-gradient-to-r hover:from-brand-50 hover:to-cyan-50 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand group-hover:to-cyan-600 transition-all duration-300">Tesla</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-brand-50 hover:to-accent-50 cursor-pointer">
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-110 hover:-rotate-1 transition-all duration-500 hover:bg-gradient-to-r hover:from-brand-50 hover:to-accent-50 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand group-hover:to-accent transition-all duration-300">SpaceX</span>
               </div>
-            </div>
+            </StaggeredList>
           </div>
         </section>
 
