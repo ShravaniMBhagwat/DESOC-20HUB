@@ -1025,12 +1025,12 @@ export default function Index() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white">DESOC Workshop Hub</h3>
-                    <p className="text-green-200 text-sm">Unlock the Universe of Knowledge</p>
+                    <p className="text-blue-200 text-sm">Unlock the Universe of Knowledge</p>
                   </div>
                 </div>
                 <div className="text-center md:text-right">
                   <p className="text-white/80 text-sm">© 2025 DESOC. All rights reserved.</p>
-                  <p className="text-green-200 text-sm font-medium">Made with 💚 for learners worldwide</p>
+                  <p className="text-blue-200 text-sm font-medium">Made with 💙 for learners worldwide</p>
                 </div>
               </div>
             </div>
