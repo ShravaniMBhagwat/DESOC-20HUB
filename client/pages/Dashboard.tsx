@@ -228,13 +228,15 @@ export default function Dashboard() {
             </div>
           </MotionWrapper>
           
-          <div className="text-right">
-            <p className="text-sm text-neutral-500">Current Streak</p>
-            <div className="flex items-center">
-              <Flame className="w-6 h-6 text-orange-500 mr-2" />
-              <span className="text-2xl font-bold text-neutral-900">{stats.currentStreak} days</span>
+          <MotionWrapper animation="slide-right" delay={200}>
+            <div className="text-right">
+              <p className="text-sm text-neutral-500">Current Streak</p>
+              <div className="flex items-center">
+                <Flame className="w-6 h-6 text-orange-500 mr-2 animate-bounce-gentle" />
+                <span className="text-2xl font-bold text-neutral-900">{stats.currentStreak} days</span>
+              </div>
             </div>
-          </div>
+          </MotionWrapper>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
