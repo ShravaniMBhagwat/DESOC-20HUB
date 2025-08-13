@@ -339,11 +339,11 @@ export default function QuizPlatform() {
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="text-sm text-gray-600">Best Score</p>
-                            <p className="text-lg font-bold text-teal-600">{quiz.bestScore}%</p>
+                            <p className="text-lg font-bold text-brand">{quiz.bestScore}%</p>
                           </div>
-                          <Button 
+                          <Button
                             onClick={() => startQuiz(quiz)}
-                            className="bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700"
+                            className="bg-gradient-to-r from-brand to-brand-600 hover:from-brand-700 hover:to-brand-700"
                           >
                             <Play className="w-4 h-4 mr-2" />
                             Start Quiz
