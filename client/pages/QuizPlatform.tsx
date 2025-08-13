@@ -6,6 +6,7 @@ import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import Navigation from '@/components/Navigation';
 import {
   Clock, Trophy, CheckCircle, XCircle, Brain, Target, 
   Play, Pause, RotateCcw, Award, BookOpen, Timer,
