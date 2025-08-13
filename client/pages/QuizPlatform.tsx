@@ -402,7 +402,7 @@ export default function QuizPlatform() {
                           <Button 
                             variant={exam.status === 'active' ? 'default' : 'outline'}
                             disabled={exam.status === 'completed'}
-                            className={exam.status === 'active' ? 'bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700' : ''}
+                            className={exam.status === 'active' ? 'bg-gradient-to-r from-brand to-brand-600 hover:from-brand-700 hover:to-brand-700' : ''}
                           >
                             {exam.status === 'upcoming' && 'Register'}
                             {exam.status === 'active' && 'Take Exam'}
