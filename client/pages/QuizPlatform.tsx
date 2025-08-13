@@ -268,7 +268,7 @@ export default function QuizPlatform() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-brand-50/30 to-accent-50/20">
       <Navigation
         isAuthenticated={isAuthenticated}
         currentUser={currentUser}
@@ -279,15 +279,15 @@ export default function QuizPlatform() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-teal-500/15 to-blue-600/15 rounded-full mb-6 border border-teal-500/20 shadow-lg backdrop-blur-sm">
-            <Brain className="w-5 h-5 text-teal-600 mr-2" />
-            <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">Knowledge Assessment Platform</span>
+          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-accent/10 rounded-full mb-6 border border-brand/20 shadow-lg backdrop-blur-sm">
+            <Brain className="w-5 h-5 text-brand mr-2" />
+            <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">Knowledge Assessment Platform</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
             Quiz & Exam
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600"> Platform</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent"> Platform</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
             Test your knowledge, track your progress, and earn certifications with our comprehensive assessment platform.
           </p>
         </div>
