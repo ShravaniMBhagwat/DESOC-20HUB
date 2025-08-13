@@ -273,9 +273,17 @@ export default function Index() {
             <div className="flex items-center space-x-4">
               {isAuthenticated ? (
                 <>
-                  <Button variant="ghost" size="sm">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setShowNotifications(true)}
+                    className="relative"
+                  >
                     <Bell className="w-4 h-4 mr-2" />
                     Notifications
+                    <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">
+                      3
+                    </span>
                   </Button>
                   <div className="flex items-center space-x-2">
                     <Avatar className="w-8 h-8">
