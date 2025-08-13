@@ -4,9 +4,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, Zap, Users, Calendar, Clock, ChevronRight, Cpu, Orbit, Wifi } from 'lucide-react';
+import { Users, Calendar, Clock, Cpu, Orbit, Zap } from 'lucide-react';
+import { SciFiHeader } from '@/components/SciFiHeader';
+import { WorkshopCard } from '@/components/WorkshopCard';
+import { LoadingScreen } from '@/components/LoadingScreen';
 
 interface Workshop {
   id: string;
@@ -28,6 +31,113 @@ interface UserRegistration {
   registeredAt: Date;
 }
 
+const mockWorkshops: Workshop[] = [
+  {
+    id: 'quantum-computing',
+    name: 'Quantum Computing Fundamentals',
+    date: '2025-01-20',
+    time: '14:00 - 16:00',
+    description: 'Dive into the quantum realm and understand the principles of quantum computing, qubits, and quantum algorithms.',
+    capacity: 25,
+    registeredUsers: [],
+    instructor: 'Dr. Sarah Chen',
+    level: 'Intermediate',
+    tags: ['Quantum', 'Physics', 'Computing'],
+    imageUrl: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop'
+  },
+  {
+    id: 'neural-networks',
+    name: 'Neural Network Architecture',
+    date: '2025-01-25',
+    time: '10:00 - 12:00',
+    description: 'Explore deep learning architectures and build your first neural network from scratch.',
+    capacity: 30,
+    registeredUsers: [],
+    instructor: 'Prof. Alex Rodriguez',
+    level: 'Advanced',
+    tags: ['AI', 'Machine Learning', 'Python'],
+    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop'
+  },
+  {
+    id: 'space-robotics',
+    name: 'Space Robotics Engineering',
+    date: '2025-01-30',
+    time: '13:00 - 15:00',
+    description: 'Design and program robots for space exploration missions. Learn about autonomous navigation in zero gravity.',
+    capacity: 20,
+    registeredUsers: [],
+    instructor: 'Commander Lisa Park',
+    level: 'Intermediate',
+    tags: ['Robotics', 'Space', 'Engineering'],
+    imageUrl: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=250&fit=crop'
+  },
+  {
+    id: 'blockchain-protocols',
+    name: 'Advanced Blockchain Protocols',
+    date: '2025-02-05',
+    time: '16:00 - 18:00',
+    description: 'Master consensus algorithms, smart contracts, and decentralized application development.',
+    capacity: 35,
+    registeredUsers: [],
+    instructor: 'Dr. Marcus Webb',
+    level: 'Advanced',
+    tags: ['Blockchain', 'Cryptography', 'Web3'],
+    imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop'
+  },
+  {
+    id: 'cybersecurity-hacking',
+    name: 'Ethical Hacking & Penetration Testing',
+    date: '2025-02-10',
+    time: '09:00 - 11:00',
+    description: 'Learn ethical hacking techniques, vulnerability assessment, and penetration testing methodologies.',
+    capacity: 15,
+    registeredUsers: [],
+    instructor: 'Agent Maya Singh',
+    level: 'Advanced',
+    tags: ['Security', 'Hacking', 'Networks'],
+    imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop'
+  },
+  {
+    id: 'biotech-programming',
+    name: 'Biotechnology & Bioinformatics',
+    date: '2025-02-15',
+    time: '11:00 - 13:00',
+    description: 'Apply programming to biological data analysis, gene sequencing, and protein structure prediction.',
+    capacity: 28,
+    registeredUsers: [],
+    instructor: 'Dr. Elena Vasquez',
+    level: 'Beginner',
+    tags: ['Biology', 'Data Science', 'Research'],
+    imageUrl: 'https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=400&h=250&fit=crop'
+  },
+  {
+    id: 'ar-vr-development',
+    name: 'Augmented & Virtual Reality Development',
+    date: '2025-02-20',
+    time: '15:00 - 17:00',
+    description: 'Create immersive AR/VR experiences using cutting-edge development frameworks and spatial computing.',
+    capacity: 22,
+    registeredUsers: [],
+    instructor: 'Dr. Kai Nakamura',
+    level: 'Intermediate',
+    tags: ['AR', 'VR', 'Spatial Computing', 'Unity'],
+    imageUrl: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=400&h=250&fit=crop'
+  },
+  {
+    id: 'edge-computing',
+    name: 'Edge Computing & IoT Architecture',
+    date: '2025-02-25',
+    time: '12:00 - 14:00',
+    description: 'Architect distributed systems for edge computing and IoT networks with real-time processing capabilities.',
+    capacity: 26,
+    registeredUsers: [],
+    instructor: 'Engineer Priya Sharma',
+    level: 'Advanced',
+    tags: ['IoT', 'Edge Computing', 'Distributed Systems'],
+    imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop'
+  }
+];
+
 export default function Index() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState<string | null>(null);
@@ -40,95 +150,11 @@ export default function Index() {
   const [authError, setAuthError] = useState('');
   const [notification, setNotification] = useState('');
 
-  // Mock workshops data
-  const mockWorkshops: Workshop[] = [
-    {
-      id: 'quantum-computing',
-      name: 'Quantum Computing Fundamentals',
-      date: '2025-01-20',
-      time: '14:00 - 16:00',
-      description: 'Dive into the quantum realm and understand the principles of quantum computing, qubits, and quantum algorithms.',
-      capacity: 25,
-      registeredUsers: [],
-      instructor: 'Dr. Sarah Chen',
-      level: 'Intermediate',
-      tags: ['Quantum', 'Physics', 'Computing'],
-      imageUrl: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=250&fit=crop'
-    },
-    {
-      id: 'neural-networks',
-      name: 'Neural Network Architecture',
-      date: '2025-01-25',
-      time: '10:00 - 12:00',
-      description: 'Explore deep learning architectures and build your first neural network from scratch.',
-      capacity: 30,
-      registeredUsers: [],
-      instructor: 'Prof. Alex Rodriguez',
-      level: 'Advanced',
-      tags: ['AI', 'Machine Learning', 'Python'],
-      imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop'
-    },
-    {
-      id: 'space-robotics',
-      name: 'Space Robotics Engineering',
-      date: '2025-01-30',
-      time: '13:00 - 15:00',
-      description: 'Design and program robots for space exploration missions. Learn about autonomous navigation in zero gravity.',
-      capacity: 20,
-      registeredUsers: [],
-      instructor: 'Commander Lisa Park',
-      level: 'Intermediate',
-      tags: ['Robotics', 'Space', 'Engineering'],
-      imageUrl: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=250&fit=crop'
-    },
-    {
-      id: 'blockchain-protocols',
-      name: 'Advanced Blockchain Protocols',
-      date: '2025-02-05',
-      time: '16:00 - 18:00',
-      description: 'Master consensus algorithms, smart contracts, and decentralized application development.',
-      capacity: 35,
-      registeredUsers: [],
-      instructor: 'Dr. Marcus Webb',
-      level: 'Advanced',
-      tags: ['Blockchain', 'Cryptography', 'Web3'],
-      imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop'
-    },
-    {
-      id: 'cybersecurity-hacking',
-      name: 'Ethical Hacking & Penetration Testing',
-      date: '2025-02-10',
-      time: '09:00 - 11:00',
-      description: 'Learn ethical hacking techniques, vulnerability assessment, and penetration testing methodologies.',
-      capacity: 15,
-      registeredUsers: [],
-      instructor: 'Agent Maya Singh',
-      level: 'Advanced',
-      tags: ['Security', 'Hacking', 'Networks'],
-      imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop'
-    },
-    {
-      id: 'biotech-programming',
-      name: 'Biotechnology & Bioinformatics',
-      date: '2025-02-15',
-      time: '11:00 - 13:00',
-      description: 'Apply programming to biological data analysis, gene sequencing, and protein structure prediction.',
-      capacity: 28,
-      registeredUsers: [],
-      instructor: 'Dr. Elena Vasquez',
-      level: 'Beginner',
-      tags: ['Biology', 'Data Science', 'Research'],
-      imageUrl: 'https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=400&h=250&fit=crop'
-    }
-  ];
-
   useEffect(() => {
-    // Simulate loading and authentication check
     const initializeApp = async () => {
       setIsLoading(true);
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate loading
+      await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Check if user is logged in (mock)
       const savedUser = localStorage.getItem('sciFiUser');
       if (savedUser) {
         setCurrentUser(savedUser);
@@ -150,6 +176,11 @@ export default function Index() {
     }
   };
 
+  const showNotification = (message: string, duration = 5000) => {
+    setNotification(message);
+    setTimeout(() => setNotification(''), duration);
+  };
+
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setAuthError('');
@@ -164,15 +195,12 @@ export default function Index() {
       return;
     }
 
-    // Mock authentication
     const userId = `user_${Date.now()}`;
     localStorage.setItem('sciFiUser', userId);
     setCurrentUser(userId);
     setIsAuthenticated(true);
     setShowAuth(false);
-    setNotification(`Authentication successful! Welcome to the network, Agent ${userId.slice(-4)}.`);
-    
-    setTimeout(() => setNotification(''), 5000);
+    showNotification(`Authentication successful! Welcome to the network, Agent ${userId.slice(-4)}.`);
   };
 
   const handleRegister = async (workshopId: string) => {
@@ -186,14 +214,12 @@ export default function Index() {
 
     const isAlreadyRegistered = registrations.some(r => r.workshopId === workshopId);
     if (isAlreadyRegistered) {
-      setNotification('You are already registered for this workshop.');
-      setTimeout(() => setNotification(''), 3000);
+      showNotification('You are already registered for this workshop.', 3000);
       return;
     }
 
     if (workshop.registeredUsers.length >= workshop.capacity) {
-      setNotification('Workshop is at full capacity.');
-      setTimeout(() => setNotification(''), 3000);
+      showNotification('Workshop is at full capacity.', 3000);
       return;
     }
 
@@ -207,7 +233,6 @@ export default function Index() {
     setRegistrations(updatedRegistrations);
     localStorage.setItem(`registrations_${currentUser}`, JSON.stringify(updatedRegistrations));
 
-    // Update workshop registered users
     const updatedWorkshops = workshops.map(w => 
       w.id === workshopId 
         ? { ...w, registeredUsers: [...w.registeredUsers, currentUser] }
@@ -215,8 +240,7 @@ export default function Index() {
     );
     setWorkshops(updatedWorkshops);
 
-    setNotification(`Successfully registered for ${workshop.name}!`);
-    setTimeout(() => setNotification(''), 5000);
+    showNotification(`Successfully registered for ${workshop.name}!`);
   };
 
   const handleUnregister = async (workshopId: string) => {
@@ -227,7 +251,6 @@ export default function Index() {
       localStorage.setItem(`registrations_${currentUser}`, JSON.stringify(updatedRegistrations));
     }
 
-    // Update workshop registered users
     const updatedWorkshops = workshops.map(w => 
       w.id === workshopId 
         ? { ...w, registeredUsers: w.registeredUsers.filter(u => u !== currentUser) }
@@ -236,8 +259,7 @@ export default function Index() {
     setWorkshops(updatedWorkshops);
 
     const workshop = workshops.find(w => w.id === workshopId);
-    setNotification(`Unregistered from ${workshop?.name}`);
-    setTimeout(() => setNotification(''), 3000);
+    showNotification(`Unregistered from ${workshop?.name}`, 3000);
   };
 
   const handleLogout = () => {
@@ -246,8 +268,7 @@ export default function Index() {
     setCurrentUser(null);
     setIsAuthenticated(false);
     setRegistrations([]);
-    setNotification('Session terminated. Goodbye, Agent.');
-    setTimeout(() => setNotification(''), 3000);
+    showNotification('Session terminated. Goodbye, Agent.', 3000);
   };
 
   const isRegisteredForWorkshop = (workshopId: string) => {
@@ -264,68 +285,17 @@ export default function Index() {
   };
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center">
-        <div className="text-center space-y-6">
-          <div className="relative">
-            <Cpu className="w-16 h-16 text-neon-blue-400 animate-spin mx-auto" />
-            <div className="absolute inset-0 w-16 h-16 bg-neon-blue-400 rounded-full opacity-20 animate-ping mx-auto"></div>
-          </div>
-          <div className="space-y-2">
-            <h2 className="text-2xl font-bold text-neon-blue-400 animate-pulse">SYSTEM INITIALIZING</h2>
-            <p className="text-slate-300 font-mono">Establishing secure connection...</p>
-          </div>
-        </div>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      {/* Header */}
-      <header className="border-b border-neon-blue-500/30 bg-black/20 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <Orbit className="w-8 h-8 text-neon-blue-400 animate-spin" />
-                <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-blue-400 to-neon-purple-400">
-                  NEXUS WORKSHOP HUB
-                </h1>
-              </div>
-              <Badge variant="outline" className="border-cyber-green-500 text-cyber-green-400 bg-cyber-green-500/10">
-                <Wifi className="w-3 h-3 mr-1" />
-                NETWORK ACTIVE
-              </Badge>
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              {isAuthenticated ? (
-                <>
-                  <Badge variant="secondary" className="bg-neon-blue-500/20 text-neon-blue-400 border-neon-blue-500/50">
-                    Agent {currentUser?.slice(-4)}
-                  </Badge>
-                  <Button 
-                    onClick={handleLogout}
-                    variant="outline" 
-                    className="border-red-500/50 text-red-400 hover:bg-red-500/10"
-                  >
-                    DISCONNECT
-                  </Button>
-                </>
-              ) : (
-                <Button 
-                  onClick={() => setShowAuth(true)}
-                  className="bg-neon-blue-500 hover:bg-neon-blue-600 text-white"
-                >
-                  <Zap className="w-4 h-4 mr-2" />
-                  CONNECT
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
+      <SciFiHeader 
+        isAuthenticated={isAuthenticated}
+        currentUser={currentUser}
+        onConnect={() => setShowAuth(true)}
+        onLogout={handleLogout}
+      />
 
       {/* Notification */}
       {notification && (
@@ -422,95 +392,15 @@ export default function Index() {
             AVAILABLE PROTOCOLS
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {workshops.map((workshop) => {
-              const isRegistered = isRegisteredForWorkshop(workshop.id);
-              const availableSlots = workshop.capacity - workshop.registeredUsers.length;
-              const isFull = availableSlots <= 0;
-              
-              return (
-                <Card key={workshop.id} className="glass border-neon-blue-500/30 hover:border-neon-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue-500/20 group">
-                  <div className="relative overflow-hidden rounded-t-lg">
-                    <img 
-                      src={workshop.imageUrl} 
-                      alt={workshop.name}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <Badge className={`absolute top-3 left-3 ${getLevelColor(workshop.level)}`}>
-                      {workshop.level}
-                    </Badge>
-                    {isRegistered && (
-                      <Badge className="absolute top-3 right-3 bg-cyber-green-500 text-cyber-green-100">
-                        ACTIVE
-                      </Badge>
-                    )}
-                  </div>
-                  
-                  <CardHeader>
-                    <CardTitle className="text-neon-blue-400 group-hover:text-neon-blue-300 transition-colors">
-                      {workshop.name}
-                    </CardTitle>
-                    <CardDescription className="text-slate-400">
-                      Instructor: {workshop.instructor}
-                    </CardDescription>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-4">
-                    <p className="text-slate-300 text-sm">{workshop.description}</p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {workshop.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs bg-slate-700/50 text-slate-300">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                    
-                    <div className="flex items-center justify-between text-sm text-slate-400">
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{workshop.date}</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{workshop.time}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <Users className="w-4 h-4 text-slate-400" />
-                        <span className="text-sm text-slate-400">
-                          {availableSlots} / {workshop.capacity} slots
-                        </span>
-                      </div>
-                      <Badge 
-                        variant={isFull ? "destructive" : "secondary"}
-                        className={isFull ? "bg-red-500/20 text-red-400" : "bg-cyber-green-500/20 text-cyber-green-400"}
-                      >
-                        {isFull ? "FULL" : "AVAILABLE"}
-                      </Badge>
-                    </div>
-                    
-                    <Button 
-                      onClick={() => isRegistered ? handleUnregister(workshop.id) : handleRegister(workshop.id)}
-                      disabled={!isRegistered && isFull}
-                      className={`w-full ${
-                        isRegistered 
-                          ? "bg-red-500/20 border-red-500/50 text-red-400 hover:bg-red-500/30" 
-                          : isFull
-                          ? "bg-gray-500/20 text-gray-500 cursor-not-allowed"
-                          : "bg-neon-blue-500 hover:bg-neon-blue-600 text-white"
-                      }`}
-                      variant={isRegistered ? "outline" : "default"}
-                    >
-                      {isRegistered ? "ABORT PROTOCOL" : isFull ? "CAPACITY REACHED" : "INITIATE PROTOCOL"}
-                      {!isRegistered && !isFull && <ChevronRight className="w-4 h-4 ml-2" />}
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {workshops.map((workshop) => (
+              <WorkshopCard
+                key={workshop.id}
+                workshop={workshop}
+                isRegistered={isRegisteredForWorkshop(workshop.id)}
+                onRegister={handleRegister}
+                onUnregister={handleUnregister}
+              />
+            ))}
           </div>
         </section>
       </main>
