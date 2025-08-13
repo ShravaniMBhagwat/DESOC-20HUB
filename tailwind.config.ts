@@ -272,6 +272,14 @@ export default {
             filter: "hue-rotate(270deg)",
           },
         },
+        "blink": {
+          "0%, 50%, 100%": {
+            opacity: "1",
+          },
+          "25%, 75%": {
+            opacity: "0.3",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
