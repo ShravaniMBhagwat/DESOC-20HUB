@@ -340,14 +340,14 @@ export default function Index() {
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent z-10 pointer-events-none"></div>
             <div className="flex flex-wrap justify-center items-center gap-6">
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 cursor-pointer">
-                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600 transition-all duration-300">Google</span>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-brand-50 hover:to-brand-100 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-brand group-hover:to-brand-600 transition-all duration-300">Google</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 cursor-pointer">
-                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-600 group-hover:to-emerald-600 transition-all duration-300">Microsoft</span>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-success-50 hover:to-success-100 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-success group-hover:to-success-600 transition-all duration-300">Microsoft</span>
               </div>
-              <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 cursor-pointer">
-                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">Meta</span>
+              <div className="group px-8 py-4 bg-gradient-to-r from-white to-neutral-50 rounded-xl border border-neutral-200/60 text-neutral-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-accent-50 hover:to-accent-100 cursor-pointer">
+                <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-accent-600 transition-all duration-300">Meta</span>
               </div>
               <div className="group px-8 py-4 bg-gradient-to-r from-white to-gray-50 rounded-xl border border-gray-200/60 text-gray-700 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-500 hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 cursor-pointer">
                 <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-yellow-600 transition-all duration-300">Amazon</span>
