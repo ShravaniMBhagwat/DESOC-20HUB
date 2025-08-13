@@ -470,15 +470,15 @@ export default function DesocEvents() {
     <div className="space-y-12">
       {/* Header */}
       <div className="text-center">
-        <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500/15 to-pink-600/15 rounded-full mb-6 border border-purple-500/20 shadow-lg backdrop-blur-sm">
-          <Globe className="w-5 h-5 text-purple-600 mr-2" />
-          <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">DESOC Club Events</span>
+        <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-accent/15 rounded-full mb-6 border border-brand/20 shadow-lg backdrop-blur-sm">
+          <Globe className="w-5 h-5 text-brand mr-2" />
+          <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">DESOC Club Events</span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
           Exclusive DESOC
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600"> Events</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent"> Events</span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
           Join our signature events that bring together innovators, developers, and visionaries from around the world.
         </p>
       </div>
