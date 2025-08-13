@@ -382,7 +382,7 @@ export default function Index() {
             <MotionWrapper animation="slide-up" delay={400} duration="0.8s">
               <h2 className="text-5xl md:text-7xl font-bold text-neutral-900 mb-8 leading-tight">
                 Unlock the
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-gradient-shift bg-size-200 animate-bounce-gentle">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-gradient-shift bg-size-200 animate-bounce-gentle hover:animate-wiggle transition-all duration-500 transform hover:scale-110 hover:rotate-1 cursor-default shadow-lg hover:shadow-glow-accent">
                   {" "}
                   Universe{" "}
                 </span>
@@ -509,7 +509,7 @@ export default function Index() {
                       <div className="bg-white/70 rounded-lg p-4 border border-accent/10">
                         <h5 className="font-semibold text-accent mb-2">💎 What We Offer:</h5>
                         <ul className="text-sm text-neutral-700 space-y-1">
-                          <li>• Flexible work hours</li>
+                          <li>�� Flexible work hours</li>
                           <li>• Skill development opportunities</li>
                           <li>• Networking with industry experts</li>
                           <li>• Certificate of contribution</li>
@@ -1200,7 +1200,7 @@ export default function Index() {
                 onChange={(e) =>
                   setAuthForm({ ...authForm, password: e.target.value })
                 }
-                placeholder="•••••••���"
+                placeholder="•••••••�����"
                 required
               />
             </div>
