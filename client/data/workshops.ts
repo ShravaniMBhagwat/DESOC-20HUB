@@ -120,7 +120,7 @@ export const workshopsData: Workshop[] = [
     level: 'Advanced',
     tags: ['AI', 'Machine Learning', 'Python', 'TensorFlow'],
     category: 'Artificial Intelligence',
-    price: 129,
+    price: 0,
     rating: 4.9,
     reviewCount: 89,
     reviews: [],
