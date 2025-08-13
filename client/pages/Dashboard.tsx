@@ -250,54 +250,54 @@ export default function Dashboard() {
           <TabsContent value="overview" className="space-y-8">
             {/* Key Metrics */}
             <StaggeredList staggerDelay={100} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="professional-card bg-gradient-to-br from-brand-50 to-brand-100 border-brand-200">
+              <Card className="professional-card bg-gradient-to-br from-brand-50 to-brand-100 border-brand-200 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-brand-700">Total Hours</p>
-                      <p className="text-3xl font-bold text-brand-900">{stats.totalHours}</p>
+                      <p className="text-3xl font-bold text-brand-900 group-hover:animate-bounce-gentle">{stats.totalHours}</p>
                       <p className="text-xs text-brand-600">+{stats.thisWeekHours} this week</p>
                     </div>
-                    <Clock className="w-8 h-8 text-brand-600" />
+                    <Clock className="w-8 h-8 text-brand-600 group-hover:animate-wiggle" />
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="professional-card bg-gradient-to-br from-accent-50 to-accent-100 border-accent-200">
+              <Card className="professional-card bg-gradient-to-br from-accent-50 to-accent-100 border-accent-200 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-accent-700">Exams Completed</p>
-                      <p className="text-3xl font-bold text-accent-900">{stats.examsCompleted}</p>
+                      <p className="text-3xl font-bold text-accent-900 group-hover:animate-bounce-gentle">{stats.examsCompleted}</p>
                       <p className="text-xs text-accent-600">{stats.averageScore}% avg score</p>
                     </div>
-                    <Trophy className="w-8 h-8 text-accent-600" />
+                    <Trophy className="w-8 h-8 text-accent-600 group-hover:animate-bounce-gentle" />
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="professional-card bg-gradient-to-br from-success-50 to-success-100 border-success-200">
+              <Card className="professional-card bg-gradient-to-br from-success-50 to-success-100 border-success-200 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-success-700">Courses</p>
-                      <p className="text-3xl font-bold text-success-900">{stats.coursesCompleted}/{stats.coursesEnrolled}</p>
+                      <p className="text-3xl font-bold text-success-900 group-hover:animate-bounce-gentle">{stats.coursesCompleted}/{stats.coursesEnrolled}</p>
                       <p className="text-xs text-success-600">{Math.round((stats.coursesCompleted / stats.coursesEnrolled) * 100)}% completed</p>
                     </div>
-                    <BookOpen className="w-8 h-8 text-success-600" />
+                    <BookOpen className="w-8 h-8 text-success-600 group-hover:animate-wiggle" />
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="professional-card bg-gradient-to-br from-warning-50 to-warning-100 border-warning-200">
+              <Card className="professional-card bg-gradient-to-br from-warning-50 to-warning-100 border-warning-200 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-warning-700">Certificates</p>
-                      <p className="text-3xl font-bold text-warning-900">{stats.certificatesEarned}</p>
+                      <p className="text-3xl font-bold text-warning-900 group-hover:animate-bounce-gentle">{stats.certificatesEarned}</p>
                       <p className="text-xs text-warning-600">Professional level</p>
                     </div>
-                    <Award className="w-8 h-8 text-warning-600" />
+                    <Award className="w-8 h-8 text-warning-600 group-hover:animate-bounce-gentle" />
                   </div>
                 </CardContent>
               </Card>
