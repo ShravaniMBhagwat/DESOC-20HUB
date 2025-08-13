@@ -325,33 +325,65 @@ export default function Index() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
-        <section className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Professional Workshop Platform
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Advance your career with hands-on workshops led by industry experts. 
-            Learn cutting-edge technologies and earn professional certificates.
-          </p>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-brand">{workshops.length}</div>
-              <div className="text-sm text-gray-600">Active Workshops</div>
+        <section className="text-center mb-12 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-brand/5 to-purple-600/5 rounded-3xl"></div>
+          <div className="relative py-16 px-8">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand/10 to-purple-600/10 rounded-full mb-6">
+              <Star className="w-4 h-4 text-brand mr-2" />
+              <span className="text-sm font-medium text-gray-700">Trusted by 10,000+ professionals worldwide</span>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-brand">{workshops.reduce((acc, w) => acc + w.capacity, 0)}</div>
-              <div className="text-sm text-gray-600">Total Seats</div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Unlock the
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-600"> Universe </span>
+              of Knowledge
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+              Join DESOC Workshop Hub and transform your career with cutting-edge workshops led by industry pioneers.
+              Master tomorrow's technologies today and earn prestigious certifications that matter.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <Button className="bg-gradient-to-r from-brand to-blue-600 hover:from-brand/90 hover:to-blue-600/90 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                Start Learning Today
+              </Button>
+              <Button variant="outline" className="px-8 py-3 text-lg font-semibold border-2 hover:bg-gray-50 transition-all duration-300">
+                Explore Workshops
+              </Button>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-brand">4.7</div>
-              <div className="text-sm text-gray-600">Avg Rating</div>
+
+            {/* Enhanced Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+              <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand to-blue-600 mb-2">{workshops.length}</div>
+                <div className="text-sm font-medium text-gray-600">Expert Workshops</div>
+              </div>
+              <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600 mb-2">{workshops.reduce((acc, w) => acc + w.capacity, 0)}</div>
+                <div className="text-sm font-medium text-gray-600">Learning Seats</div>
+              </div>
+              <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500 mb-2">4.7⭐</div>
+                <div className="text-sm font-medium text-gray-600">Average Rating</div>
+              </div>
+              <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-2">92%</div>
+                <div className="text-sm font-medium text-gray-600">Success Rate</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-brand">92%</div>
-              <div className="text-sm text-gray-600">Completion Rate</div>
-            </div>
+          </div>
+        </section>
+
+        {/* Trust Indicators */}
+        <section className="mb-12">
+          <div className="text-center mb-8">
+            <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Trusted by leading organizations</p>
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Google</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Microsoft</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Meta</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Amazon</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Apple</div>
+            <div className="px-6 py-3 bg-white rounded-lg border border-gray-200 text-gray-700 font-semibold">Netflix</div>
           </div>
         </section>
 
