@@ -344,10 +344,12 @@ export default function Index() {
 
         {/* Innovation Partners */}
         <section className="mb-16">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent mb-4">Innovation Partners</h3>
-            <p className="text-lg font-medium text-neutral-600">Powering the future with leading technology companies</p>
-          </div>
+          <MotionWrapper animation="slide-up" delay={0}>
+            <div className="text-center mb-10">
+              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent mb-4 animate-gradient-shift bg-size-200">Innovation Partners</h3>
+              <p className="text-lg font-medium text-neutral-600">Powering the future with leading technology companies</p>
+            </div>
+          </MotionWrapper>
           <div className="relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent z-10 pointer-events-none"></div>
             <div className="flex flex-wrap justify-center items-center gap-6">
