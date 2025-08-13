@@ -54,7 +54,7 @@ export default function Navigation({
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-4 group">
             <div className="relative">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand to-brand-600 rounded-xl shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-900 via-brand to-brand-600 rounded-xl shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
                 <BookOpen className="w-7 h-7 text-white group-hover:animate-bounce-gentle" />
               </div>
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center group-hover:animate-wiggle">
