@@ -296,15 +296,19 @@ export default function Index() {
                 <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent">Premium Learning Platform</span>
               </div>
             </MotionWrapper>
-            <h2 className="text-5xl md:text-7xl font-bold text-neutral-900 mb-8 leading-tight">
-              Unlock the
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-pulse"> Universe </span>
-              of Knowledge
-            </h2>
-            <p className="text-xl md:text-2xl text-neutral-600 max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
-              Join DESOC Workshop Hub and transform your career with cutting-edge workshops led by industry pioneers.
-              Master tomorrow's technologies today and earn prestigious certifications that matter.
-            </p>
+            <MotionWrapper animation="slide-up" delay={400} duration="0.8s">
+              <h2 className="text-5xl md:text-7xl font-bold text-neutral-900 mb-8 leading-tight">
+                Unlock the
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-gradient-shift bg-size-200"> Universe </span>
+                of Knowledge
+              </h2>
+            </MotionWrapper>
+            <MotionWrapper animation="slide-up" delay={600} duration="0.8s">
+              <p className="text-xl md:text-2xl text-neutral-600 max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
+                Join DESOC Workshop Hub and transform your career with cutting-edge workshops led by industry pioneers.
+                Master tomorrow's technologies today and earn prestigious certifications that matter.
+              </p>
+            </MotionWrapper>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <Button className="bg-gradient-to-r from-brand via-brand-600 to-accent hover:from-brand/90 hover:via-brand-600/90 hover:to-accent/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-105 border-2 border-white/20">
                 🚀 Start Learning Today
