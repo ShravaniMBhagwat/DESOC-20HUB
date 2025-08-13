@@ -709,7 +709,7 @@ export default function Index() {
             </Card>
 
             {/* Special Masterclass */}
-            <Card className="professional-card border-l-4 border-l-green-500">
+            <Card className="professional-card border-l-4 border-l-blue-700">
               <div className="absolute top-4 right-4">
                 <Badge className="bg-yellow-400 text-black">Premium</Badge>
               </div>
