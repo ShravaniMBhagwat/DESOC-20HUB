@@ -54,8 +54,8 @@ export default function Navigation({
               </div>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900 leading-tight">DESOC Workshop Hub</h1>
-              <p className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-600 font-medium">Unlock the Universe of Knowledge</p>
+              <h1 className="text-xl font-bold text-neutral-900 leading-tight">DESOC Workshop Hub</h1>
+              <p className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent font-medium">Unlock the Universe of Knowledge</p>
             </div>
           </Link>
 
@@ -69,8 +69,8 @@ export default function Navigation({
                   to={item.path}
                   className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActivePath(item.path)
-                      ? 'bg-gradient-to-r from-brand to-blue-600 text-white shadow-lg'
-                      : 'text-gray-700 hover:text-brand hover:bg-brand/5'
+                      ? 'bg-gradient-to-r from-brand to-brand-600 text-white shadow-lg'
+                      : 'text-neutral-700 hover:text-brand hover:bg-brand/5'
                   }`}
                 >
                   <IconComponent className="w-4 h-4 mr-2" />
@@ -140,8 +140,8 @@ export default function Navigation({
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                       isActivePath(item.path)
-                        ? 'bg-gradient-to-r from-brand to-blue-600 text-white'
-                        : 'text-gray-700 hover:text-brand hover:bg-brand/5'
+                        ? 'bg-gradient-to-r from-brand to-brand-600 text-white'
+                        : 'text-neutral-700 hover:text-brand hover:bg-brand/5'
                     }`}
                   >
                     <IconComponent className="w-4 h-4 mr-3" />
