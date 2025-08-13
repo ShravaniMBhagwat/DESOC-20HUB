@@ -254,6 +254,24 @@ export default {
             transform: "rotate(360deg)",
           },
         },
+        "universe-magic": {
+          "0%, 100%": {
+            transform: "scale(1) rotate(0deg)",
+            filter: "hue-rotate(0deg)",
+          },
+          "25%": {
+            transform: "scale(1.05) rotate(1deg)",
+            filter: "hue-rotate(90deg)",
+          },
+          "50%": {
+            transform: "scale(1.1) rotate(0deg)",
+            filter: "hue-rotate(180deg)",
+          },
+          "75%": {
+            transform: "scale(1.05) rotate(-1deg)",
+            filter: "hue-rotate(270deg)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
