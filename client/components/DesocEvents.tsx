@@ -214,9 +214,9 @@ const eventIcons = {
 };
 
 const eventColors = {
-  GENESIS: 'from-purple-600 to-pink-600',
-  Unleash: 'from-yellow-500 to-orange-600',
-  TECHSABHA: 'from-blue-600 to-teal-600'
+  GENESIS: 'from-brand to-accent',
+  Unleash: 'from-warning to-warning-600',
+  TECHSABHA: 'from-success to-brand'
 };
 
 export default function DesocEvents() {
@@ -225,10 +225,10 @@ export default function DesocEvents() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'upcoming': return 'bg-blue-500';
-      case 'ongoing': return 'bg-green-500';
-      case 'completed': return 'bg-gray-500';
-      default: return 'bg-gray-500';
+      case 'upcoming': return 'bg-brand';
+      case 'ongoing': return 'bg-success';
+      case 'completed': return 'bg-neutral-500';
+      default: return 'bg-neutral-500';
     }
   };
 
