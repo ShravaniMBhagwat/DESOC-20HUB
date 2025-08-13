@@ -253,10 +253,17 @@ export default function Index() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 relative overflow-hidden">
+      {/* Floating background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-brand/10 to-purple-600/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/10 to-blue-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
+      </div>
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm border-b border-gray-200/60 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="bg-white/95 backdrop-blur-lg border-b border-gray-200/60 sticky top-0 z-50 shadow-lg relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-brand/5 via-transparent to-purple-600/5"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center justify-between h-18 py-2">
             {/* Logo */}
             <div className="flex items-center space-x-4">
@@ -325,9 +332,10 @@ export default function Index() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
-        <section className="text-center mb-12 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-brand/5 to-purple-600/5 rounded-3xl"></div>
-          <div className="relative py-16 px-8">
+        <section className="text-center mb-16 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-purple-600/8 to-pink-600/6 rounded-3xl shadow-2xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent rounded-3xl"></div>
+          <div className="relative py-20 px-8">
             <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand/15 to-purple-600/15 rounded-full mb-8 border border-brand/20 shadow-lg backdrop-blur-sm">
               <Star className="w-5 h-5 text-brand mr-2 animate-pulse" />
               <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-brand to-purple-600">Premium Learning Platform</span>
@@ -351,22 +359,22 @@ export default function Index() {
             </div>
 
             {/* Enhanced Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand to-blue-600 mb-2">{workshops.length}</div>
-                <div className="text-sm font-medium text-gray-600">Expert Workshops</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-gray-200/60 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-500 transform hover:scale-105 hover:rotate-1">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand to-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300">{workshops.length}</div>
+                <div className="text-sm font-semibold text-gray-600 group-hover:text-brand transition-colors duration-300">Expert Workshops</div>
               </div>
-              <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600 mb-2">{workshops.reduce((acc, w) => acc + w.capacity, 0)}</div>
-                <div className="text-sm font-medium text-gray-600">Learning Seats</div>
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-gray-200/60 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500 transform hover:scale-105 hover:-rotate-1">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600 mb-3 group-hover:scale-110 transition-transform duration-300">{workshops.reduce((acc, w) => acc + w.capacity, 0)}</div>
+                <div className="text-sm font-semibold text-gray-600 group-hover:text-green-600 transition-colors duration-300">Learning Seats</div>
               </div>
-              <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500 mb-2">4.7⭐</div>
-                <div className="text-sm font-medium text-gray-600">Average Rating</div>
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-gray-200/60 hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-500 transform hover:scale-105 hover:rotate-1">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500 mb-3 group-hover:scale-110 transition-transform duration-300">4.7⭐</div>
+                <div className="text-sm font-semibold text-gray-600 group-hover:text-yellow-600 transition-colors duration-300">Average Rating</div>
               </div>
-              <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-2">92%</div>
-                <div className="text-sm font-medium text-gray-600">Success Rate</div>
+              <div className="group text-center p-8 bg-white/90 backdrop-blur-lg rounded-3xl border border-gray-200/60 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 transform hover:scale-105 hover:-rotate-1">
+                <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-3 group-hover:scale-110 transition-transform duration-300">92%</div>
+                <div className="text-sm font-semibold text-gray-600 group-hover:text-purple-600 transition-colors duration-300">Success Rate</div>
               </div>
             </div>
           </div>
