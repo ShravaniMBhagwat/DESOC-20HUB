@@ -165,6 +165,15 @@ export default function QuizPlatform() {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [score, setScore] = useState(0);
 
+  // Mock authentication state
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [currentUser, setCurrentUser] = useState('user_12345');
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setCurrentUser(null);
+  };
+
   // Timer effect
   useEffect(() => {
     let interval: NodeJS.Timeout;
