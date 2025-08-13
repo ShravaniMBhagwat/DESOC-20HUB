@@ -54,12 +54,11 @@ export default function Navigation({
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-4 group">
             <div className="relative">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-900 via-brand to-brand-600 rounded-xl shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                <BookOpen className="w-7 h-7 text-white group-hover:animate-bounce-gentle" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center group-hover:animate-wiggle">
-                <span className="text-xs font-bold text-gray-900">D</span>
-              </div>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F142dac6fdf83404a8a11b556d6cc9036%2F07ee797f25984a768f7298e5bdc5d9af?format=webp&width=800"
+                alt="DESOC Logo"
+                className="w-12 h-12 rounded-xl shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 object-cover"
+              />
             </div>
             <div>
               <h1 className="text-xl font-bold text-neutral-900 leading-tight">
