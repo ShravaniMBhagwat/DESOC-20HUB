@@ -381,10 +381,8 @@ export default function Index() {
             </MotionWrapper>
             <MotionWrapper animation="slide-up" delay={400} duration="0.8s">
               <h2 className="text-5xl md:text-7xl font-bold text-neutral-900 mb-8 leading-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-blue-700 to-brand animate-gradient-shift bg-size-200">
-                  Unlock the
-                </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-gradient-shift bg-size-200">
+                Unlock the
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-accent to-brand-700 animate-gradient-shift bg-size-200 animate-bounce-gentle">
                   {" "}
                   Universe{" "}
                 </span>
@@ -401,7 +399,7 @@ export default function Index() {
             </MotionWrapper>
             <MotionWrapper animation="scale-in" delay={800} duration="0.6s">
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-                <Button className="bg-gradient-to-r from-blue-900 via-blue-700 to-brand hover:from-blue-800 hover:via-blue-600 hover:to-brand/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-110 hover:-rotate-1 border-2 border-white/20 group">
+                <Button className="bg-gradient-to-r from-success via-success-600 to-emerald-600 hover:from-success/90 hover:via-success-600/90 hover:to-emerald-600/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-glow-success transition-all duration-500 transform hover:scale-110 hover:-rotate-1 border-2 border-white/20 group">
                   <span className="group-hover:animate-bounce-gentle">🚀</span>{" "}
                   Start Learning Today - FREE!
                 </Button>
