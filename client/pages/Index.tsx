@@ -401,13 +401,13 @@ export default function Index() {
             </MotionWrapper>
             <MotionWrapper animation="scale-in" delay={800} duration="0.6s">
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-                <Button className="bg-gradient-to-r from-success via-success-600 to-emerald-600 hover:from-success/90 hover:via-success-600/90 hover:to-emerald-600/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-glow-success transition-all duration-500 transform hover:scale-110 hover:-rotate-1 border-2 border-white/20 group">
+                <Button className="bg-gradient-to-r from-blue-900 via-blue-700 to-brand hover:from-blue-800 hover:via-blue-600 hover:to-brand/90 text-white px-10 py-4 text-xl font-bold shadow-2xl hover:shadow-glow transition-all duration-500 transform hover:scale-110 hover:-rotate-1 border-2 border-white/20 group">
                   <span className="group-hover:animate-bounce-gentle">🚀</span>{" "}
                   Start Learning Today - FREE!
                 </Button>
                 <Button
                   variant="outline"
-                  className="px-10 py-4 text-xl font-bold border-3 border-success hover:bg-gradient-to-r hover:from-success/5 hover:to-emerald-500/5 transition-all duration-500 transform hover:scale-110 hover:rotate-1 hover:border-emerald-500 text-success hover:text-emerald-600 group"
+                  className="px-10 py-4 text-xl font-bold border-3 border-blue-700 hover:bg-gradient-to-r hover:from-blue-700/5 hover:to-brand/5 transition-all duration-500 transform hover:scale-110 hover:rotate-1 hover:border-brand text-blue-700 hover:text-brand group"
                 >
                   <span className="group-hover:animate-wiggle">🎯</span> Explore Free
                   Workshops
